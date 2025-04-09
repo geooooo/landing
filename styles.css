@@ -60,7 +60,6 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 10px;
 }
 
 .spin-figure {
@@ -140,6 +139,7 @@ body {
 }
 
 .section-header {
+    margin-bottom: 20px;
     font-size: 1.2rem;
 }
 
@@ -148,20 +148,48 @@ body {
 }
 
 .footer-header {
+    margin-bottom: 15px;
     font-size: 1.1rem;
 }
 
-/* .section-about {}
+.courses {
+    margin-bottom: 20px;
+}
 
-.section-career {}
+.courses-header,
+.olympiads-header {
+    margin-bottom: 10px;
+}
 
-.section-skills {}
+.courses-list,
+.olympiads-list,
+.contacts-list {
+    list-style-type: none;
+}
 
-.section-about {}
+.courses-item img,
+.olympiads-item img {
+    width: 100%;
+}
 
-.section-achievements {}
+.olympiads-item-description {
+    margin-top: 5px;
+}
 
-.section-interests {} */
+.olympiads-item-description p {
+    margin-top: 2px;
+}
+
+.contacts-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.contacts-item {
+    margin-top: 5px;
+    margin-right: 10px;
+}
 
 @media screen and (min-width: 768px) {
     .header,
@@ -180,3 +208,5 @@ body {
         height: 20px;
     }
 }
+
+/* TODO: print */
