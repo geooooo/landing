@@ -160,6 +160,74 @@ body {
     font-size: 1.1rem;
 }
 
+.career-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed var(--page-background-color);
+}
+
+.career-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: -10px;
+}
+
+.career-header > * {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.career-header > *:last-child {
+    margin-right: 0;
+}
+
+.career-header img {
+    height: 2rem;
+}
+
+.career-header-separator {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--page-background-color);
+    border-radius: 100%;
+}
+
+.career-header,
+.career-role,
+.career-stack {
+    margin-bottom: 10px;
+}
+
+.career-wrike .career-description {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+
+.career-wrike .career-description > p {
+    display: flex;
+    flex-direction: column;
+    width: calc(60% - 10px);
+    margin-right: 10px;
+}
+
+.career-wrike .career-description > p > span {
+    margin-bottom: 5px;
+}
+
+.career-wrike .career-description > img {
+    width: 40%;
+    height: 20%;
+}
+
+.gdg {
+    width: 100%;
+}
+
 .skills {
     display: flex;
     flex-direction: row;
@@ -170,7 +238,8 @@ body {
     border-bottom: 2px dashed var(--page-background-color);
 }
 
-.skills:last-child {
+.skills:last-child,
+.career-item:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: 0;
