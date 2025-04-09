@@ -20,6 +20,14 @@ h1, h2, h3 {
     color: var(--header-color);
 }
 
+ol, ul {
+    list-style-type: none;
+}
+
+img {
+    border-radius: 10px;
+}
+
 html {
     font-size: 100%;
 }
@@ -152,32 +160,81 @@ body {
     font-size: 1.1rem;
 }
 
-.courses {
-    margin-bottom: 20px;
-}
-
 .courses-header,
-.olympiads-header {
+.olympiads-header,
+.interests-header {
     margin-bottom: 10px;
 }
 
-.courses-list,
-.olympiads-list,
-.contacts-list {
-    list-style-type: none;
+.courses {
+    margin-bottom: 10px;
 }
 
-.courses-item img,
-.olympiads-item img {
+.courses-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.courses-item {
+    width: 45%;
+}
+
+.courses-item img {
     width: 100%;
 }
 
-.olympiads-item-description {
+.olympiads-images {
+    display: flex;
+    flex-direction: row;
+}
+
+.olympiads-images img:first-child {
+    margin-right: 10px;
+    width: calc(50% - 10px);
+}
+
+.olympiads-images img:last-child {
+    margin-right: 0;
+    width: 30%;
+}
+
+.olympiads p {
     margin-top: 5px;
 }
 
-.olympiads-item-description p {
-    margin-top: 2px;
+.interests-images {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+}
+
+.interests-images img:first-child {
+    margin-right: 10px;
+    width: calc(30% - 10px);
+}
+
+.interests-images img:last-child {
+    width: 70%;
+}
+
+.interests-item {
+    margin-top: 10px;
+}
+
+.interests-item:first-child {
+    margin-top: 0;
+}
+
+.interests-item-multimedia p,
+.interests-item-drive p {
+    margin-bottom: 5px;
+}
+
+.interests-item {
+    display: flex;
+    flex-direction: column;
 }
 
 .contacts-list {
@@ -208,5 +265,3 @@ body {
         height: 20px;
     }
 }
-
-/* TODO: print */
