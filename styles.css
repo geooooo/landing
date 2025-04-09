@@ -160,6 +160,76 @@ body {
     font-size: 1.1rem;
 }
 
+.skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed var(--page-background-color);
+}
+
+.skills:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.skills-item {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 10px;
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.skill-name {
+    margin-right: 5px;
+}
+
+.skill-level {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.skill-level b {
+    margin-right: 0.1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 1px solid var(--text-color);
+    border-radius: 100%;
+}
+
+.skill-level b:last-child {
+    margin-right: 0.1rem;
+}
+
+.skill-level[data-level="1"] b:first-child {
+    background-color: var(--text-color);
+}
+
+.skill-level[data-level="2"] b:first-child,
+.skill-level[data-level="2"] b:nth-child(2) {
+    background-color: var(--text-color);
+}
+
+.skill-level[data-level="3"] b:first-child,
+.skill-level[data-level="3"] b:nth-child(2),
+.skill-level[data-level="3"] b:nth-child(3) {
+    background-color: var(--text-color);
+}
+
+.skill-level[data-level="4"] b:first-child,
+.skill-level[data-level="4"] b:nth-child(2),
+.skill-level[data-level="4"] b:nth-child(3),
+.skill-level[data-level="4"] b:last-child {
+    background-color: var(--text-color);
+}
+
 .courses-header,
 .olympiads-header,
 .interests-header {
@@ -263,15 +333,5 @@ body {
         margin: 20px 0;
         width: 40px;
         height: 20px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    img:active {
-        position: fixed;
-        z-index: 3;
-        left: 0;
-        top: 0;
-        width: 100% !important;
     }
 }
