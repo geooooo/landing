@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    outline: 0;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+:root {
+    --header-color: #333;
+    --text-color: #444;
+    --page-background-color: #eee;
+    --content-background-color: white;
+}
+
+h1, h2, h3 {
+    color: var(--header-color);
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--page-background-color);
+    color: var(--text-color);
+}
+
+.header,
+.section,
+.footer {
+    padding: 10px 20px;
+    background-color: var(--content-background-color);
+}
+
+.header,
+.content {
+    margin-bottom: 40px;
+}
+
+.header {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 10px double var(--page-background-color);
+}
+
+.footer {
+    border-top: 10px double var(--page-background-color);
+}
+
+.section-header,
+.footer-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.spin-figure {
+    position: absolute;
+    z-index: 1;
+    bottom: -10px;
+    left: -40px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--page-background-color);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    animation-name: spin-figure-move, spin-figure-rotation;
+    animation-duration: 5s, 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+
+.spin-figure::after {
+    content: "";
+    position: absolute;
+    top: calc(40px / 2 - 10px / 2);
+    left: calc(40px / 2 - 10px / 2);
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: var(--content-background-color);
+}
+
+@keyframes spin-figure-move {
+    0% { 
+        left: -40px;
+    }   
+    100% { 
+        left: 100%;
+    }
+}
+
+@keyframes spin-figure-rotation {
+    0% { 
+        transform: rotate(0deg);
+    }   
+    100% { 
+        transform: rotate(360deg);
+    }
+}
+
+.join-line {
+    margin: 10px 0;
+    width: 20px;
+    height: 10px;
+    background-color: var(--content-background-color);
+    clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+    transform: rotate(-90deg);
+}
+
+.content {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section {
+    width: 100%;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-left: 10px double var(--page-background-color);
+    border-right: 10px double var(--page-background-color);
+}
+
+.header h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.section-header {
+    font-size: 1.2rem;
+}
+
+.icon {
+    margin-right: 0.3rem;
+}
+
+.footer-header {
+    font-size: 1.1rem;
+}
+
+/* .section-about {}
+
+.section-career {}
+
+.section-skills {}
+
+.section-about {}
+
+.section-achievements {}
+
+.section-interests {} */
