@@ -265,3 +265,13 @@ body {
         height: 20px;
     }
 }
+
+@media screen and (max-width: 768px) {
+    img:active {
+        position: fixed;
+        z-index: 3;
+        left: 0;
+        top: 0;
+        width: 100% !important;
+    }
+}
