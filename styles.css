@@ -346,8 +346,7 @@ body {
 }
 
 .courses-header,
-.olympiads-header,
-.interests-header {
+.olympiads-header {
     margin-bottom: 10px;
 }
 
@@ -387,39 +386,6 @@ body {
 
 .olympiads p {
     margin-top: 5px;
-}
-
-.interests-images {
-    display: flex;
-    flex-direction: row;
-    margin-top: 5px;
-}
-
-.interests-images img:first-child {
-    margin-right: 10px;
-    width: calc(30% - 10px);
-}
-
-.interests-images img:last-child {
-    width: 70%;
-}
-
-.interests-item {
-    margin-top: 10px;
-}
-
-.interests-item:first-child {
-    margin-top: 0;
-}
-
-.interests-item-multimedia p,
-.interests-item-drive p {
-    margin-bottom: 5px;
-}
-
-.interests-item {
-    display: flex;
-    flex-direction: column;
 }
 
 .contacts-list {
