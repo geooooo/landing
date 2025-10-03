@@ -61,6 +61,7 @@ body {
 
 .footer {
     border-top: 10px double var(--page-background-color);
+    padding-bottom: 20px;
 }
 
 .section-header,
@@ -248,30 +249,43 @@ body {
     margin-bottom: 10px;
 }
 
+.career-description p {
+    text-indent: 1rem;
+    margin-bottom: 10px;
+}
+
+.career-description p:last-child {
+    margin-bottom: 0;
+}
+
 .career-wrike .career-description {
     display: flex;
     flex-direction: row;
-    align-items: end;
 }
 
-.career-wrike .career-description > p {
+.career-wrike .career-description > div {
     display: flex;
     flex-direction: column;
-    width: calc(60% - 10px);
+    width: calc(50% - 10px);
     margin-right: 10px;
 }
 
-.career-wrike .career-description > p > span {
-    margin-bottom: 5px;
-}
-
-.career-wrike .career-description > img {
-    width: 40%;
+.career-wrike .career-description > .wrike-awards {
+    width: 50%;
     height: 20%;
 }
 
 .gdg {
     width: 100%;
+    margin-bottom: 10px;
+}
+
+.meetup {
+    width: 100%;
+}
+
+.skills-type {
+    margin-bottom: 10px;
 }
 
 .skills {
@@ -354,6 +368,11 @@ body {
     margin-bottom: 10px;
 }
 
+.courses img,
+.olympiads img {
+    cursor: pointer;
+}
+
 .courses-list {
     display: flex;
     flex-direction: row;
@@ -386,6 +405,18 @@ body {
 
 .olympiads p {
     margin-top: 5px;
+}
+
+.img-preview {
+    position: fixed;
+    width: 90% !important;
+    max-height: 85% !important;
+    left: 5%;
+    right: 5%;
+    top: 10%;
+    bottom: 0;
+    border: 2px solid var(--text-color);
+    box-shadow: 0 0 100px var(--text-color);
 }
 
 .contacts-list {
@@ -422,6 +453,26 @@ body {
 
     .about-cell:last-child {
         margin-bottom: 0 !important;
+    }
+
+    .career-wrike .career-description {
+        flex-direction: column;
+    }
+
+    .career-wrike .career-description > div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .career-wrike .career-description > .wrike-awards {
+        width: 100%;
+    }
+
+    .footer {
+        padding-bottom: 40px;
     }
 }
 
