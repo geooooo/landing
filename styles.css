@@ -71,6 +71,40 @@ body {
     align-items: center;
 }
 
+.rustic {
+    position: absolute;
+    z-index: 1;
+    bottom: -1px;
+    left: -40px;
+    background: url("assets/rust.png") no-repeat center;
+    background-size: cover;
+    width: 40px;
+    height: 20px;
+    animation-name: spin-figure-move, spin-animal-rotation;
+    animation-duration: 5s, 1s;
+    animation-timing-function: ease, linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal, alternate-reverse;
+    animation-delay: -1s;
+}
+
+.gopher {
+    position: absolute;
+    z-index: 1;
+    bottom: -10px;
+    left: -40px;
+    background: url("assets/go.png") no-repeat center;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    animation-name: spin-figure-move, spin-animal-rotation;
+    animation-duration: 5s, 1s;
+    animation-timing-function: ease, linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal, alternate-reverse;
+    animation-delay: -1.5s;
+}
+
 .spin-figure {
     position: absolute;
     z-index: 1;
@@ -113,6 +147,15 @@ body {
     }   
     100% { 
         transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-animal-rotation {
+    0% { 
+        transform: rotate(10deg);
+    }   
+    100% { 
+        transform: rotate(-10deg);
     }
 }
 
@@ -366,11 +409,6 @@ body {
 
 .courses {
     margin-bottom: 10px;
-}
-
-.courses img,
-.olympiads img {
-    cursor: pointer;
 }
 
 .courses-list {

@@ -13,6 +13,10 @@ function onWindowLoad() {
 }
 
 function onImageClickForPreview(event) {
+    if (window.innerWidth > 768) {
+        return;
+    }
+
     var target = event.target;
 
     if (!(target instanceof HTMLImageElement)) {
