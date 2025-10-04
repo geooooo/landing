@@ -7,14 +7,19 @@ function main() {
 function onWindowLoad() {
     var coursesElement = window.document.querySelector(".courses");
 
+    window.document.body.addEventListener("click", onClickOutside);
     coursesElement.addEventListener("click", onCoursesClick);
+}
+
+function onClickOutside() {
+    hideImgPreview();
 }
 
 function onCoursesClick(event) {
     var target = event.target;
 
     if (target instanceof HTMLImageElement) {
-        onImageClickForPreview(target);
+        onImageClickForPreview(event, target);
 
         return;
     }
@@ -25,14 +30,24 @@ function onCoursesClick(event) {
     }
 }
 
-function onImageClickForPreview(imgElement) {
+function onImageClickForPreview(event, imgElement) {
+    event.stopPropagation();
+
     if (imgPreviewElement != null) {
-        imgPreviewElement.classList.toggle("img-preview");
-        imgPreviewElement = null;
+        hideImgPreview();
     } else if (window.innerWidth <= 768) {
         imgPreviewElement = imgElement;
         imgPreviewElement.classList.toggle("img-preview");
     }
+}
+
+function hideImgPreview() {
+    if (imgPreviewElement == null) {
+        return;
+    }
+    
+    imgPreviewElement.classList.toggle("img-preview");
+    imgPreviewElement = null;
 }
 
 function onToggleList(headerElement) {
