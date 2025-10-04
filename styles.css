@@ -402,9 +402,32 @@ body {
     background-color: var(--text-color);
 }
 
-.courses-header,
-.olympiads-header {
+.courses-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px dashed var(--page-background-color);
+    cursor: pointer;
+}
+
+.courses-header:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.courses-header-icon {
+    width: 0.8rem;
+    height: 0.5rem;
+    margin-right: 10px;
+    background: var(--text-color);
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+.courses-header-icon_open {
+    transform: rotate(180deg);
 }
 
 .courses {
@@ -412,37 +435,22 @@ body {
 }
 
 .courses-list {
-    display: flex;
+    display: none;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
+.courses-list_open {
+    display: flex;
+}
+
 .courses-item {
-    width: 45%;
+    width: 49%;
 }
 
 .courses-item img {
     width: 100%;
-}
-
-.olympiads-images {
-    display: flex;
-    flex-direction: row;
-}
-
-.olympiads-images img:first-child {
-    margin-right: 10px;
-    width: calc(50% - 10px);
-}
-
-.olympiads-images img:last-child {
-    margin-right: 0;
-    width: 30%;
-}
-
-.olympiads p {
-    margin-top: 5px;
 }
 
 .img-preview {
@@ -507,6 +515,10 @@ body {
 
     .career-wrike .career-description > .wrike-awards {
         width: 100%;
+    }
+
+    .courses-item img {
+        cursor: pointer;
     }
 
     .footer {

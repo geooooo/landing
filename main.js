@@ -6,30 +6,40 @@ function main() {
 
 function onWindowLoad() {
     var coursesElement = window.document.querySelector(".courses");
-    var olympiadsElement = window.document.querySelector(".olympiads");
 
-    coursesElement.addEventListener("click", onImageClickForPreview);
-    olympiadsElement.addEventListener("click", onImageClickForPreview);
+    coursesElement.addEventListener("click", onCoursesClick);
 }
 
-function onImageClickForPreview(event) {
-    if (window.innerWidth > 768) {
-        return;
-    }
-
+function onCoursesClick(event) {
     var target = event.target;
 
-    if (!(target instanceof HTMLImageElement)) {
+    if (target instanceof HTMLImageElement) {
+        onImageClickForPreview(target);
+
         return;
     }
 
+    var headerElement = target.closest(".courses-header");
+    if (headerElement != null) {
+        onToggleList(headerElement);
+    }
+}
+
+function onImageClickForPreview(imgElement) {
     if (imgPreviewElement != null) {
         imgPreviewElement.classList.toggle("img-preview");
         imgPreviewElement = null;
-    } else {
-        imgPreviewElement = target;
+    } else if (window.innerWidth <= 768) {
+        imgPreviewElement = imgElement;
         imgPreviewElement.classList.toggle("img-preview");
     }
+}
+
+function onToggleList(headerElement) {
+    var iconElement = headerElement.querySelector(".courses-header-icon");
+    iconElement.classList.toggle("courses-header-icon_open");
+    var listElement = headerElement.nextElementSibling;
+    listElement.classList.toggle("courses-list_open");
 }
 
 main();
