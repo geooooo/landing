@@ -1,10 +1,12 @@
 var imgPreviewElement = null;
+var shadowElement = null;
 
 function main() {
     window.addEventListener("load", onWindowLoad);
 }
 
 function onWindowLoad() {
+    shadowElement = window.document.querySelector(".shadow");
     var coursesElement = window.document.querySelector(".courses");
 
     window.document.body.addEventListener("click", onClickOutside);
@@ -19,25 +21,22 @@ function onCoursesClick(event) {
     var target = event.target;
 
     if (target instanceof HTMLImageElement) {
-        onImageClickForPreview(event, target);
-
-        return;
-    }
-
-    var headerElement = target.closest(".courses-header");
-    if (headerElement != null) {
-        onToggleList(headerElement);
+        event.stopPropagation();
+        
+        onImageClickForPreview(target);
+    } else {
+        var headerElement = target.closest(".courses-header");
+        if (headerElement != null) {
+            onToggleCoursesList(headerElement);
+        }
     }
 }
 
-function onImageClickForPreview(event, imgElement) {
-    event.stopPropagation();
-
+function onImageClickForPreview(imgElement) {
     if (imgPreviewElement != null) {
         hideImgPreview();
     } else if (window.innerWidth <= 768) {
-        imgPreviewElement = imgElement;
-        imgPreviewElement.classList.toggle("img-preview");
+        showImagePreview(imgElement)
     }
 }
 
@@ -48,11 +47,27 @@ function hideImgPreview() {
     
     imgPreviewElement.classList.toggle("img-preview");
     imgPreviewElement = null;
+    toggleShadow();
 }
 
-function onToggleList(headerElement) {
+function showImagePreview(imgElement) {
+    if (imgPreviewElement != null) {
+        return;
+    }
+
+    imgPreviewElement = imgElement;
+    imgPreviewElement.classList.toggle("img-preview");
+    toggleShadow();
+}
+
+function toggleShadow() {
+    shadowElement.classList.toggle("shadow_visible");
+}
+
+function onToggleCoursesList(headerElement) {
     var iconElement = headerElement.querySelector(".courses-header-icon");
     iconElement.classList.toggle("courses-header-icon_open");
+
     var listElement = headerElement.nextElementSibling;
     listElement.classList.toggle("courses-list_open");
 }

@@ -453,8 +453,27 @@ body {
     width: 100%;
 }
 
+.shadow {
+    display: none;
+    position: fixed;
+    z-index: 100500;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--text-color);
+    opacity: 0.3;
+}
+
+.shadow_visible {
+    display: block;
+}
+
 .img-preview {
     position: fixed;
+    z-index: 100501;
     width: 90% !important;
     max-height: 85% !important;
     left: 5%;
