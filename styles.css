@@ -562,3 +562,57 @@ body {
         height: 20px;
     }
 }
+
+@media print {
+    body {
+        -webkit-print-color-adjust:exact !important;
+        print-color-adjust:exact !important;
+    }
+
+    .spin-figure,
+    .gopher,
+    .rustic {
+        animation: none !important;
+    }
+
+    .contacts-item {
+        width: 100% !important;
+    }
+
+    .footer a::after {
+        content: " - " attr(href);
+        display: inline;
+    }
+
+    .spin-figure {
+        left: 75% !important;
+    }
+
+    .rustic {
+        left: 85% !important;
+    }
+
+    .gopher {
+        left: 90% !important;
+    }
+
+    .shadow_visible {
+        display: none !important;
+    }
+
+    .courses-list {
+        display: flex !important;
+    }
+
+    .join-line {
+        display: none !important;
+    }
+
+    .section {
+        border-bottom: solid var(--page-background-color) 5px !important;
+    }
+
+    .section:last-child {
+        border-bottom: 0 !important;
+    }
+}

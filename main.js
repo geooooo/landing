@@ -8,9 +8,14 @@ function main() {
 function onWindowLoad() {
     shadowElement = window.document.querySelector(".shadow");
     var coursesElement = window.document.querySelector(".courses");
-
+    
+    window.addEventListener("beforeprint", onBeforePrint);
     window.document.body.addEventListener("click", onClickOutside);
     coursesElement.addEventListener("click", onCoursesClick);
+}
+
+function onBeforePrint() {
+    hideImgPreview();
 }
 
 function onClickOutside() {
@@ -22,7 +27,7 @@ function onCoursesClick(event) {
 
     if (target instanceof HTMLImageElement) {
         event.stopPropagation();
-        
+
         onImageClickForPreview(target);
     } else {
         var headerElement = target.closest(".courses-header");
