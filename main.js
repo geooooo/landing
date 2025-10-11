@@ -40,7 +40,7 @@ function onCoursesClick(event) {
 function onImageClickForPreview(imgElement) {
     if (imgPreviewElement != null) {
         hideImgPreview();
-    } else if (window.innerWidth <= 768) {
+    } else if (window.innerWidth <= 1024) {
         showImagePreview(imgElement)
     }
 }

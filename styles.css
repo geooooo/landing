@@ -162,8 +162,10 @@ body {
 .join-line {
     margin: 10px 0;
     width: 20px;
-    height: 10px;
+    height: 20px;
     background-color: var(--content-background-color);
+    background: #eee;
+    background: linear-gradient(90deg, #fff 0%, #eee 100%);
     clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
     transform: rotate(-90deg);
 }
@@ -207,6 +209,32 @@ body {
 .i-am {
     border-radius: 100%;
     width: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(215, 230, 237);
+    animation-name: i-am-anim;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes i-am-anim {  
+    0% {
+        border-top-color: rgb(147, 111, 93);
+    }
+    25% {
+        border-right-color: rgb(42, 69, 49);
+    }
+    50% {
+        border-bottom-color: rgb(55, 54, 55);
+    }
+    75% { 
+        border-left-color: rgb(147, 111, 93);
+    }
+    100% { 
+        border-left-color: rgb(42, 69, 49);
+    }
 }
 
 .about-row {
@@ -247,6 +275,29 @@ body {
 }
 
 .about-cell p:last-child {
+    margin-bottom: 0;
+}
+
+.section-what-now {
+    background-color: var(--text-color);
+    color: var(--content-background-color);
+}
+
+.section-what-now h2, 
+.section-what-now h3  {
+    color: var(--content-background-color);
+}
+
+.section-what-now ul {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.section-what-now p {
+    margin-bottom: 10px;
+}
+
+.section-what-now p:last-child {
     margin-bottom: 0;
 }
 
@@ -481,7 +532,6 @@ body {
     top: 10%;
     bottom: 0;
     border: 2px solid var(--text-color);
-    box-shadow: 0 0 100px var(--text-color);
 }
 
 .contacts-list {
@@ -495,7 +545,7 @@ body {
     margin-right: 10px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .about-row {
         flex-direction: column !important;
     }
@@ -538,6 +588,13 @@ body {
 
     .courses-item img {
         cursor: pointer;
+        transition-duration: 0.2s;
+        transition-property: box-shadow;
+        transition-timing-function: linear;
+    }
+
+    .courses-item img:hover {
+        box-shadow: 0 0 5px var(--text-color);
     }
 
     .footer {
@@ -545,7 +602,7 @@ body {
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
     .header,
     .section,
     .footer {
@@ -559,7 +616,6 @@ body {
     .join-line {
         margin: 20px 0;
         width: 40px;
-        height: 20px;
     }
 }
 
