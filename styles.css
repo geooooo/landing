@@ -16,7 +16,15 @@
     --content-background-color: white;
 }
 
+a { 
+    color: #4f8cb0;
+}
+
 h1, h2, h3 {
+    color: var(--header-color);
+}
+
+h2 a {
     color: var(--header-color);
 }
 
@@ -192,6 +200,45 @@ body {
     text-align: center;
 }
 
+.header-bottom {
+    margin-top: 10px;
+}
+
+.header-bottom .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.nav .nav-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.nav .nav-item:last-child {
+    margin-right: 0;
+}
+
+.nav .nav-item a {
+    display: block;
+    margin-right: 10px;
+}
+
+.nav .nav-item::after {
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--page-background-color);
+    border-radius: 100%;
+}
+
+.nav .nav-item:last-child::after {
+    display: none;
+}
+
 .section-header {
     margin-bottom: 20px;
     font-size: 1.2rem;
@@ -285,6 +332,10 @@ body {
 
 .section-what-now h2, 
 .section-what-now h3  {
+    color: var(--content-background-color);
+}
+
+.section-what-now h2 a {
     color: var(--content-background-color);
 }
 
@@ -629,6 +680,10 @@ body {
     .gopher,
     .rustic {
         animation: none !important;
+    }
+
+    .header-bottom {
+        display: none;
     }
 
     .contacts-item {
