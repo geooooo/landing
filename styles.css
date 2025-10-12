@@ -645,6 +645,7 @@ body {
         transition-timing-function: linear;
     }
 
+    .courses-item img:active,
     .courses-item img:hover {
         box-shadow: 0 0 5px var(--text-color);
     }
