@@ -254,19 +254,6 @@ body {
     font-size: 1.1rem;
 }
 
-.i-am {
-    border-radius: 100%;
-    width: 50%;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgb(215, 230, 237);
-    animation-name: i-am-anim;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
 @keyframes i-am-anim {  
     0% {
         border-top-color: rgb(147, 111, 93);
@@ -283,6 +270,34 @@ body {
     100% { 
         border-left-color: rgb(42, 69, 49);
     }
+}
+
+.about-cell-main {
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    top: 25%;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px var(--text-color);
+}
+
+.i-am {
+    border-radius: 100%;
+    width: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(215, 230, 237);
+    animation-name: i-am-anim;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 .about-row {
@@ -598,6 +613,13 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
+    .logo {
+        top: 0;
+        left: 25%;
+        width: 15vw;
+        height: 15vw;
+    }
+    
     .about-row {
         flex-direction: column !important;
     }
