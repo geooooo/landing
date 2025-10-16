@@ -300,6 +300,14 @@ body {
     animation-direction: alternate;
 }
 
+.old-school-kringe img {
+    display: block;
+    margin-top: 10px;
+    width: 50%;
+    border-radius: 10px;
+    border: 2px solid var(--text-color);
+}
+
 .about-row {
     display: flex;
     flex-direction: row;
@@ -438,11 +446,11 @@ body {
 
 .gdg {
     width: 100%;
-    margin-bottom: 10px;
 }
 
 .meetup {
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .skills-type {
