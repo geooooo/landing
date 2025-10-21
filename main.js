@@ -1,8 +1,38 @@
 var imgPreviewElement = null;
 var shadowElement = null;
+var imageBaseUrl = "assets/certs/"
+var imagesToPreload = [
+    "cert-arch-os.png",
+    "cert-c.png",
+    "cert-db.png",
+    "cert-go.png",
+    "cert-go0.png",
+    "cert-go1.png",
+    "cert-go2.png",
+    "cert-linux.png",
+    "cert-python.png",
+    "cert-python0.png",
+    "cert-python1.jpeg",
+    "olymp0.jpg",
+    "olymp1.jpeg",
+];
 
 function main() {
+    preloadImages();
+
     window.addEventListener("load", onWindowLoad);
+}
+
+function preloadImages() {
+    for (var i = 0; i < imagesToPreload.length; i++) {
+        src = imageBaseUrl + imagesToPreload[i];
+
+        var img = new Image();
+        img.onload = function(e) {
+            console.log("Loaded:", e.target.src);
+        };
+        img.src = src;
+    }
 }
 
 function onWindowLoad() {

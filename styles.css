@@ -24,6 +24,14 @@ h1, h2, h3 {
     color: var(--header-color);
 }
 
+h2 {
+    font-size: 1.2rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+}
+
 h2 a {
     color: var(--header-color);
 }
@@ -69,7 +77,6 @@ body {
 
 .footer {
     border-top: 10px double var(--page-background-color);
-    padding-bottom: 20px;
 }
 
 .section-header,
@@ -84,7 +91,7 @@ body {
     z-index: 1;
     bottom: -1px;
     left: -40px;
-    background: url("assets/rust.png") no-repeat center;
+    background: url("assets/langs/rustic.png") no-repeat center;
     background-size: cover;
     width: 40px;
     height: 20px;
@@ -101,7 +108,7 @@ body {
     z-index: 1;
     bottom: -10px;
     left: -40px;
-    background: url("assets/go.png") no-repeat center;
+    background: url("assets/langs/gopher.png") no-repeat center;
     background-size: cover;
     width: 40px;
     height: 40px;
@@ -198,6 +205,11 @@ body {
     z-index: 2;
     font-size: 1.5rem;
     text-align: center;
+    margin-bottom: 5px;
+}
+
+.header h2 {
+    text-align: center;
 }
 
 .header-bottom {
@@ -250,8 +262,8 @@ body {
 }
 
 .footer-header {
-    margin-bottom: 15px;
     font-size: 1.1rem;
+    margin-bottom: 15px;
 }
 
 @keyframes i-am-anim {  
@@ -347,6 +359,55 @@ body {
 
 .about-cell p:last-child {
     margin-bottom: 0;
+}
+
+.my-tools-item {
+    list-style-type: none;
+    margin-top: 5px;
+}
+
+.lang-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.lang-icon-c {
+    background-image: url("assets/langs/c.png");
+}
+
+.lang-icon-go {
+    background-image: url("assets/langs/go.png");
+}
+
+.lang-icon-rust {
+    background-image: url("assets/langs/rust.png");
+}
+
+.lang-icon-js {
+    background-image: url("assets/langs/js.png");
+}
+
+.lang-icon-ts {
+    background-image: url("assets/langs/ts.png");
+}
+
+.lang-icon-node {
+    background-image: url("assets/langs/node.png");
+}
+
+.lang-icon-python {
+    background-image: url("assets/langs/python.png");
+}
+
+.lang-icon-dart {
+    background-image: url("assets/langs/dart.png");
+}
+
+.lang-icon-flutter {
+    background-image: url("assets/langs/flutter.png");
 }
 
 .section-what-now {
@@ -521,13 +582,6 @@ body {
     background-color: var(--text-color);
 }
 
-.skill-level[data-level="4"] b:first-child,
-.skill-level[data-level="4"] b:nth-child(2),
-.skill-level[data-level="4"] b:nth-child(3),
-.skill-level[data-level="4"] b:last-child {
-    background-color: var(--text-color);
-}
-
 .courses-header {
     display: flex;
     flex-direction: row;
@@ -609,15 +663,39 @@ body {
     border: 2px solid var(--text-color);
 }
 
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 15px;
+    column-gap: 10px;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+}
+
 .contacts-list {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 
+.contacts-header {
+    margin-bottom: 5px;
+}
+
+.contacts-header a {
+    font-weight: normal !important;
+}
+
 .contacts-item {
-    margin-top: 5px;
-    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.contacts-item:last-child {
+    margin-bottom: 0;
 }
 
 @media screen and (max-width: 1024px) {
@@ -678,10 +756,6 @@ body {
     .courses-item img:active,
     .courses-item img:hover {
         box-shadow: 0 0 5px var(--text-color);
-    }
-
-    .footer {
-        padding-bottom: 40px;
     }
 }
 
