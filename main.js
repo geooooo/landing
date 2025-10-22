@@ -4,6 +4,7 @@ var imageBaseUrl = "assets/certs/"
 var imagesToPreload = [
     "cert-arch-os.png",
     "cert-c.png",
+    "cert-c0.png",
     "cert-db.png",
     "cert-go.png",
     "cert-go0.png",
