@@ -12,6 +12,7 @@
 :root {
     --header-color: #333;
     --text-color: #444;
+    --text-color-old: #aaa;
     --page-background-color: #eee;
     --content-background-color: white;
 }
@@ -55,6 +56,11 @@ body {
     background-color: var(--page-background-color);
     color: var(--text-color);
     min-width: 300px;
+}
+
+.old {
+    color: var(--text-color-old) !important;
+    border-color: var(--text-color-old) !important;
 }
 
 .header,
@@ -563,6 +569,10 @@ body {
     border-radius: 100%;
 }
 
+.old .skill-level b {
+    border-color: var(--text-color-old);
+}
+
 .skill-level b:last-child {
     margin-right: 0.1rem;
 }
@@ -580,6 +590,21 @@ body {
 .skill-level[data-level="3"] b:nth-child(2),
 .skill-level[data-level="3"] b:nth-child(3) {
     background-color: var(--text-color);
+}
+
+.old .skill-level[data-level="1"] b:first-child {
+    background-color: var(--text-color-old);
+}
+
+.old .skill-level[data-level="2"] b:first-child,
+.old .skill-level[data-level="2"] b:nth-child(2) {
+    background-color: var(--text-color-old);
+}
+
+.old .skill-level[data-level="3"] b:first-child,
+.old .skill-level[data-level="3"] b:nth-child(2),
+.old .skill-level[data-level="3"] b:nth-child(3) {
+    background-color: var(--text-color-old);
 }
 
 .courses-header {
