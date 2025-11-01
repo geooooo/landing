@@ -1,21 +1,15 @@
 var imgPreviewElement = null;
 var shadowElement = null;
-var imageBaseUrl = "assets/certs/"
+var imageBaseUrl = "assets/"
 var imagesToPreload = [
-    "cert-arch-os.png",
-    "cert-c.png",
-    "cert-c0.png",
-    "cert-db.png",
-    "cert-go.png",
-    "cert-go0.png",
-    "cert-go1.png",
-    "cert-go2.png",
-    "cert-linux.png",
-    "cert-python.png",
-    "cert-python0.png",
-    "cert-python1.jpeg",
-    "olymp0.jpg",
-    "olymp1.jpeg",
+    "iam/wrike-items.jpg",
+    "iam/meetup.jpg",
+    "iam/gdg.jpg",
+    "iam/delphi-old-school-kringe.png",
+    "certs/olymp0.jpg",
+    "certs/olymp1.jpeg",
+    "certs/stepik.png",
+    "certs/coursera.png",
 ];
 
 function main() {
@@ -88,6 +82,10 @@ function hideImgPreview() {
 
 function showImagePreview(imgElement) {
     if (imgPreviewElement != null) {
+        return;
+    }
+
+    if (imgElement.alt.includes("Stepik") || imgElement.alt.includes("Coursera")) {
         return;
     }
 
