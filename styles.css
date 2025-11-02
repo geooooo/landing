@@ -21,7 +21,7 @@ a {
     color: #4f8cb0;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     color: var(--header-color);
 }
 
@@ -524,14 +524,26 @@ body {
     margin-bottom: 10px;
 }
 
-.skills {
+.skills,
+.subskills {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: -5px;
     margin-bottom: 10px;
+}
+
+.skills {
     padding-bottom: 10px;
     border-bottom: 2px dashed var(--page-background-color);
+}
+
+.skills h4 {
+    padding-top: 5px;
+}
+
+.skills li:last-child .subskills {
+    margin-bottom: 0;
 }
 
 .skills:last-child,
