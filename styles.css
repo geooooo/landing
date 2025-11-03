@@ -538,6 +538,10 @@ body {
     border-bottom: 2px dashed var(--page-background-color);
 }
 
+.skills_col {
+    flex-direction: column;
+}
+
 .skills h4 {
     padding-top: 5px;
 }
@@ -557,10 +561,42 @@ body {
     display: flex;
     flex-direction: row;
     padding: 5px 10px;
-    border: 1px solid var(--text-color);
+    border-width: 1px;
+    border-style: solid;
     border-radius: 10px;
     margin-right: 10px;
     margin-top: 5px;
+    color: black;
+}
+
+.skill_old {
+    background: rgb(170, 170, 170);
+    border-color: rgb(170, 170, 170);
+}
+.skill_go {
+    background: rgb(141, 209, 230);
+    border-color: rgb(141, 209, 230);
+}
+
+.skill_soft {
+    background: rgb(239, 178, 230);
+    border-color: rgb(239, 178, 230);
+}
+
+.skill_apps {
+    background: rgb(202, 228, 144);
+    border-color: rgb(202, 228, 144);
+}
+
+.skill_tools {
+    background: rgb(239, 190, 100);
+    border-color: rgb(239, 190, 100);
+}
+
+.skill_lang {
+    background: black;
+    border-color: black;
+    color: white;
 }
 
 .skill-name {
@@ -568,7 +604,8 @@ body {
 }
 
 .skill-level {
-    display: flex;
+    /* display: flex; эксперимент с цветами */
+    display: none;
     flex-direction: row;
     align-items: center;
 }

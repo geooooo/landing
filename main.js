@@ -67,7 +67,10 @@ var skills = {
         ],
     },
     "Базовые инструменты": [
+        new Skill("Алгоритмы и структуры данных", 3),
+        new Skill("ООП", 3),
         new Skill("SOLID", 3),
+        new Skill("GRASP", 3),
         new Skill("Git", 3),
         new Skill("Gitlab", 2),
         new Skill("CI/CD", 1),
@@ -162,6 +165,22 @@ function renderSkills(containerElement) {
 
             if (skill instanceof Skill) {
                 listItemElement.className = "skills-item";
+
+                switch (mainCategoryName) {
+                    case "Soft-скилы": 
+                        listItemElement.className += " skill_soft"; 
+                        break;
+                    case "Приложения": 
+                        listItemElement.className += " skill_apps"; 
+                        break;
+                    case "Базовые инструменты": 
+                        listItemElement.className += " skill_tools"; 
+                        break;
+                    case "Языки": 
+                        listItemElement.className += " skill_lang"; 
+                        break;
+                }
+
                 var innerHTML = '<div class="skill-name">{0}</div>'.replace("{0}", skill.name);
                 if (skill.level != null) {
                     innerHTML += '<div class="skill-level" data-level="{1}"><b></b><b></b><b></b></div>'.replace("{1}", skill.level);
@@ -169,6 +188,7 @@ function renderSkills(containerElement) {
                 listItemElement.innerHTML = innerHTML;
                 listElement.appendChild(listItemElement);
             } else {
+                listElement.classList.add("skills_col");
                 listItemElement.innerHTML = '<h4 class="skills-type">' + subCategoryName + '</h4>';
                 listElement.appendChild(listItemElement);
                 
@@ -181,6 +201,18 @@ function renderSkills(containerElement) {
                     
                     var subListItemElement = window.document.createElement("li");
                     subListItemElement.className = "skills-item";
+
+                    switch(subCategoryName) {
+                        case "Go": 
+                            subListItemElement.className += " skill_go"; 
+                            break;
+                        case "Python":
+                        case "JavaScript/TypeScript/Node":
+                        case "Dart/Flutter":
+                            subListItemElement.className += " skill_old"; 
+                            break;
+                    }
+
                     subListItemElement.innerHTML = 
                         '<div class="skill-name">{0}</div>'.replace("{0}", skill.name) + 
                         '<div class="skill-level" data-level="{1}"><b></b><b></b><b></b></div>'.replace("{1}", skill.level);
