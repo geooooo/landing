@@ -568,11 +568,17 @@ body {
     margin-top: 5px;
     color: black;
 }
-
+	
 .skill_old {
     background: rgb(170, 170, 170);
     border-color: rgb(170, 170, 170);
 }
+
+.skill_dart {
+    background: rgb(173, 225, 217);
+    border-color: rgb(173, 225, 217);
+}
+
 .skill_go {
     background: rgb(141, 209, 230);
     border-color: rgb(141, 209, 230);

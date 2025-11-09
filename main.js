@@ -46,6 +46,7 @@ var skills = {
             new Skill("Cubit", 2),
             new Skill("Provider", 3),
             new Skill("GetX", 3),
+            new Skill("Firebase", 1),
         ],
         "JavaScript/TypeScript/Node": [
             new Skill("SCSS", 3),
@@ -86,7 +87,6 @@ var skills = {
         new Skill("MongoDB", 1),
         new Skill("Redis", 1),
         new Skill("Memcached", 1),
-        new Skill("Firebase", 1),
     ],
     "Soft-скилы": [
         new Skill("English A2"),
@@ -206,9 +206,11 @@ function renderSkills(containerElement) {
                         case "Go": 
                             subListItemElement.className += " skill_go"; 
                             break;
+                        case "Dart/Flutter":
+                            subListItemElement.className += " skill_dart"; 
+                            break;
                         case "Python":
                         case "JavaScript/TypeScript/Node":
-                        case "Dart/Flutter":
                             subListItemElement.className += " skill_old"; 
                             break;
                     }
