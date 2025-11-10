@@ -19,7 +19,6 @@ var skills = {
         new Skill("C", 3),
         new Skill("Go", 2),
         new Skill("Rust", 1),
-        new Skill("SQL", 2),
         new Skill("Python", 3),
         new Skill("Dart", 3),
         new Skill("JavaScript", 3),
@@ -31,7 +30,7 @@ var skills = {
         new Skill("C++", 1),
         new Skill("Assembler x86", 2),
     ],
-    "Фреймворки, библиотеки, SDK и т.п.": {
+    "Фреймворки, библиотеки и т.п.": {
         "Go": [
             new Skill("Gin", 1),
             new Skill("Gorilla", 1),
@@ -47,6 +46,7 @@ var skills = {
             new Skill("Provider", 3),
             new Skill("GetX", 3),
             new Skill("Firebase", 1),
+            new Skill("SQLite", 3),
         ],
         "JavaScript/TypeScript/Node": [
             new Skill("SCSS", 3),
@@ -67,26 +67,27 @@ var skills = {
             new Skill("Bottle", 3),
         ],
     },
-    "Базовые инструменты": [
+    "База разработки": [
         new Skill("Алгоритмы и структуры данных", 3),
         new Skill("ООП", 3),
         new Skill("SOLID", 3),
         new Skill("GRASP", 3),
         new Skill("Git", 3),
         new Skill("Gitlab", 2),
+        new Skill("Github", 2),
         new Skill("CI/CD", 1),
         new Skill("Linux", 3),
         new Skill("Bash", 3),
+        new Skill("SQL", 2),
+    ],
+    "Backend-инструменты": [
         new Skill("REST API", 3),
         new Skill("GraphQL", 2),
         new Skill("RPC", 2),
         new Skill("GRPC", 2),
-        new Skill("SQLite", 3),
         new Skill("MySQL", 2),
         new Skill("PostgreSQL", 1),
         new Skill("MongoDB", 1),
-        new Skill("Redis", 1),
-        new Skill("Memcached", 1),
     ],
     "Soft-скилы": [
         new Skill("English A2"),
@@ -173,8 +174,11 @@ function renderSkills(containerElement) {
                     case "Приложения": 
                         listItemElement.className += " skill_apps"; 
                         break;
-                    case "Базовые инструменты": 
+                    case "База разработки": 
                         listItemElement.className += " skill_tools"; 
+                        break;
+                     case "Backend-инструменты": 
+                        listItemElement.className += " skill_backend"; 
                         break;
                     case "Языки": 
                         listItemElement.className += " skill_lang"; 
@@ -189,7 +193,10 @@ function renderSkills(containerElement) {
                 listElement.appendChild(listItemElement);
             } else {
                 listElement.classList.add("skills_col");
-                listItemElement.innerHTML = '<h4 class="skills-type">' + subCategoryName + '</h4>';
+                listItemElement.innerHTML = '<h4 class="skills-type' +
+                    (subCategoryName === "JavaScript/TypeScript/Node" || subCategoryName === "Python" ? " old" : "") +
+                    '">' + 
+                    subCategoryName + '</h4>';
                 listElement.appendChild(listItemElement);
                 
                 var subListElement = window.document.createElement("ul");
@@ -211,7 +218,7 @@ function renderSkills(containerElement) {
                             break;
                         case "Python":
                         case "JavaScript/TypeScript/Node":
-                            subListItemElement.className += " skill_old"; 
+                            subListItemElement.className += " old"; 
                             break;
                     }
 

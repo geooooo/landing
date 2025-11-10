@@ -60,7 +60,6 @@ body {
 
 .old {
     color: var(--text-color-old) !important;
-    border-color: var(--text-color-old) !important;
 }
 
 .header,
@@ -569,9 +568,15 @@ body {
     color: black;
 }
 	
-.skill_old {
-    background: rgb(170, 170, 170);
-    border-color: rgb(170, 170, 170);
+.skills-item.old {
+    background: var(--text-color-old) !important;
+    border-color: var(--text-color-old) !important;
+    color: black !important;
+}
+
+.skill_backend {
+    background: rgb(134, 184, 249);
+    border-color: rgb(134, 184, 249);
 }
 
 .skill_dart {
