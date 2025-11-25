@@ -24,17 +24,17 @@ var skills = {
         new Skill("Dart", 3),
         new Skill("JS/TS/Node", 3),
         new Skill("HTML/CSS", 3),
-        new Skill("PHP", 2),
+        // new Skill("PHP", 2),
         new Skill("C++", 1),
         new Skill("Assembler x86", 2),
     ],
-    "Фреймворки, библиотеки и т.п.": {
-        "Go": [
-            new Skill("Gin", 1),
-            new Skill("Gorilla", 1),
-            new Skill("Gorm", 1),
-            new Skill("Sqlx", 1),
-        ],
+    // "Фреймворки, библиотеки и т.п.": {
+        // "Go": [
+        //     new Skill("Gin", 1),
+        //     new Skill("Gorilla", 1),
+        //     new Skill("Gorm", 1),
+        //     new Skill("Sqlx", 1),
+        // ],
         // "Dart/Flutter": [
         //     new Skill("AngularDart", 3),
         //     new Skill("RxDart", 2),
@@ -64,7 +64,7 @@ var skills = {
         //     new Skill("Flask", 3),
         //     new Skill("Bottle", 3),
         // ],
-    },
+    // },
     "База разработки": [
         new Skill("Алгоритмы и структуры данных", 3),
         new Skill("Многопоточность", 1),
