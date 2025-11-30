@@ -1,0 +1,23 @@
+name: Deploy landing to geooooo.github.io
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout landing repo
+        uses: actions/checkout@v4
+
+      - name: Deploy to geooooo.github.io
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GH_PAGES_TOKEN }}
+          external_repository: geooooo/geooooo.github.io
+          publish_dir: ./public
+          publish_branch: main
+          force_orphan: true
