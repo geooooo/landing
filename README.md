@@ -1,9 +1,9 @@
-# Личный лендинг сайт - резюме
+# Personal landing page - resume
 
-[Посмотреть на github pages 👉](https://geooooo.github.io/landing/)
+[View Github pages 👉](https://geooooo.github.io/landing/)
 
-* Обо мне в целом
-* Все что связано с карьерой
-* Профессиональные навыки
-* Достижения
-* И конечно же немного про личные интересы =)
+* About me in general
+* Everything career-related
+* Professional skills
+* Achievements
+* And of course, a little about my personal interests 
