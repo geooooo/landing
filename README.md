@@ -4,4 +4,4 @@
 * Everything career-related
 * Professional skills
 * Achievements
-* And of course, a little about my personal interests 
+* And of course, a little about my personal interests
