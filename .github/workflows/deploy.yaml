@@ -17,7 +17,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.GH_PAGES_TOKEN }}
-          external_repository: geooooo/geooooo.github.io
+          external_repository: geooooo/geooooo
           publish_branch: public
           publish_dir: ./
           force_orphan: true
