@@ -19,4 +19,5 @@ jobs:
           personal_token: ${{ secrets.GH_PAGES_TOKEN }}
           external_repository: geooooo/geooooo.github.io
           publish_branch: public
+          publish_dir: ./
           force_orphan: true
