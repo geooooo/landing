@@ -16,16 +16,16 @@ var imagesToPreload = [
 
 var skills = {
     "Языки": [
-        new Skill("C", 3),
         new Skill("Go", 2),
         new Skill("Rust", 1),
         new Skill("Python", 3),
-        new Skill("SQL", 2),
-        new Skill("Dart", 3),
         new Skill("JS/TS/Node", 3),
+        new Skill("Dart/Flutter", 3),
+        new Skill("C/C++", 3),
         new Skill("HTML/CSS", 3),
+        new Skill("SQL", 2),
         // new Skill("PHP", 2),
-        new Skill("C++", 1),
+        // new Skill("C++", 1),
         new Skill("Assembler x86", 2),
     ],
     // "Фреймворки, библиотеки и т.п.": {
@@ -72,7 +72,7 @@ var skills = {
         new Skill("ООП", 3),
         new Skill("SOLID", 3),
         new Skill("GRASP", 3),
-        new Skill("Clean architecture", 3),
+        new Skill("Чистая архитектура", 3),
     ],
     "Инструменты разработки": [
         new Skill("Git", 3),
@@ -86,6 +86,7 @@ var skills = {
         new Skill("GraphQL", 2),
         new Skill("RPC", 2),
         new Skill("GRPC", 2),
+        new Skill("SQLite", 2),
         new Skill("MySQL", 2),
         new Skill("PostgreSQL", 1),
         new Skill("MongoDB", 1),
@@ -102,7 +103,7 @@ var skills = {
         new Skill("Postman"),
         new Skill("VSCode"),
         // new Skill("Android Studio"),
-        new Skill("AI tools for dev"),
+        new Skill("AI инструменты для разработки"),
         new Skill("Trello"),
         new Skill("Wrike"),
         new Skill("Asana"),

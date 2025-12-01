@@ -21,3 +21,6 @@ jobs:
           publish_branch: public
           publish_dir: ./
           force_orphan: true
+
+      - name: Create CNAME
+        run: echo "yury-kornienko.pro" > CNAME
