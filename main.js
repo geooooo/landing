@@ -16,80 +16,45 @@ var imagesToPreload = [
 
 var skills = {
     "Языки": [
-        new Skill("Go", 2),
-        new Skill("Rust", 1),
-        new Skill("Python", 3),
-        new Skill("JS/TS/Node", 3),
-        new Skill("Dart/Flutter", 3),
-        new Skill("C/C++", 3),
-        new Skill("HTML/CSS", 3),
-        new Skill("SQL", 2),
-        // new Skill("PHP", 2),
-        // new Skill("C++", 1),
-        new Skill("Assembler x86", 2),
+        new Skill("C"),
+        new Skill("Go"),
+        new Skill("Rust"),
+        new Skill("Python"),
+        new Skill("JS/TS/Node"),
+        new Skill("Dart/Flutter"),
+        new Skill("SQL"),
+        new Skill("C++"),
+        new Skill("Assembler x86"),
     ],
     // "Фреймворки, библиотеки и т.п.": {
         // "Go": [
-        //     new Skill("Gin", 1),
-        //     new Skill("Gorilla", 1),
-        //     new Skill("Gorm", 1),
-        //     new Skill("Sqlx", 1),
-        // ],
-        // "Dart/Flutter": [
-        //     new Skill("AngularDart", 3),
-        //     new Skill("RxDart", 2),
-        //     new Skill("Redux", 3),
-        //     new Skill("Bloc", 2),
-        //     new Skill("Cubit", 2),
-        //     new Skill("Provider", 3),
-        //     new Skill("GetX", 3),
-        //     new Skill("Firebase", 1),
-        //     new Skill("SQLite", 3),
-        // ],
-        // "JavaScript/TypeScript/Node": [
-        //     new Skill("SCSS", 3),
-        //     new Skill("Less", 3),
-        //     new Skill("Webpack", 3),
-        //     new Skill("React", 2),
-        //     new Skill("Angular 2+", 2),
-        //     new Skill("Vue", 2),
-        //     new Skill("Electron", 3),
-        //     new Skill("Microfrontends", 2),
-        //     new Skill("Web Components", 3),
-        //     new Skill("Rx", 2),
-        //     new Skill("Express.js", 3),
-        //     new Skill("Nest.js", 1),
-        // ],
-        // "Python": [
-        //     new Skill("Flask", 3),
-        //     new Skill("Bottle", 3),
         // ],
     // },
     "База разработки": [
-        new Skill("Алгоритмы и структуры данных", 3),
-        new Skill("Многопоточность", 1),
-        new Skill("Операционные системы", 1),
-        new Skill("ООП", 3),
-        new Skill("SOLID", 3),
-        new Skill("GRASP", 3),
-        new Skill("Чистая архитектура", 3),
+        new Skill("Алгоритмы и структуры данных"),
+        new Skill("Многопоточность"),
+        new Skill("Операционные системы"),
+        new Skill("ООП"),
+        new Skill("SOLID"),
+        new Skill("GRASP"),
+        new Skill("Чистая архитектура"),
     ],
     "Инструменты разработки": [
-        new Skill("Git", 3),
-        new Skill("Gitlab", 2),
-        new Skill("Github", 2),
-        new Skill("CI/CD", 1),
-        new Skill("Linux", 3),
-        new Skill("Bash", 3),
-        new Skill("Docker", 1),
-        new Skill("REST API", 3),
-        new Skill("GraphQL", 2),
-        new Skill("RPC", 2),
-        new Skill("GRPC", 2),
-        new Skill("SQLite", 2),
-        new Skill("MySQL", 2),
-        new Skill("PostgreSQL", 1),
-        new Skill("MongoDB", 1),
+        new Skill("Git"),
+        new Skill("Gitlab"),
+        new Skill("Github"),
+        new Skill("CI/CD"),
+        new Skill("Linux"),
+        new Skill("Bash"),
+        new Skill("Docker"),
+        new Skill("REST API"),
+        new Skill("GraphQL"),
+        new Skill("RPC"),
+        new Skill("GRPC"),
+        new Skill("SQLite"),
+        new Skill("MySQL"),
+        new Skill("PostgreSQL"),
+        new Skill("MongoDB"),
     ],
     "Soft-скилы": [
         new Skill("English A2"),
@@ -102,20 +67,17 @@ var skills = {
     "Приложения": [
         new Skill("Postman"),
         new Skill("VSCode"),
-        // new Skill("Android Studio"),
         new Skill("AI инструменты для разработки"),
         new Skill("Trello"),
         new Skill("Wrike"),
         new Skill("Asana"),
         new Skill("Jira"),
-        // new Skill("Photoshop"),
-        // new Skill("Figma"),
     ],
 };
 
 function Skill(name, level) {
     this.name = name;
-    this.level = level;
+    this.level = level || 0;
 }
 
 function main() {
@@ -194,41 +156,41 @@ function renderSkills(containerElement) {
                 listItemElement.innerHTML = innerHTML;
                 listElement.appendChild(listItemElement);
             } else {
-                listElement.classList.add("skills_col");
-                listItemElement.innerHTML = '<h4 class="skills-type' +
-                    (subCategoryName === "JavaScript/TypeScript/Node" || subCategoryName === "Python" ? " old" : "") +
-                    '">' + 
-                    subCategoryName + '</h4>';
-                listElement.appendChild(listItemElement);
+                // listElement.classList.add("skills_col");
+                // listItemElement.innerHTML = '<h4 class="skills-type' +
+                //     (subCategoryName === "JavaScript/TypeScript/Node" || subCategoryName === "Python" ? " old" : "") +
+                //     '">' + 
+                //     subCategoryName + '</h4>';
+                // listElement.appendChild(listItemElement);
                 
-                var subListElement = window.document.createElement("ul");
-                subListElement.className = "subskills";
-                listItemElement.appendChild(subListElement);
+                // var subListElement = window.document.createElement("ul");
+                // subListElement.className = "subskills";
+                // listItemElement.appendChild(subListElement);
 
-                Object.keys(mainCategorySkills[subCategoryName]).forEach(function(_, i) {
-                    var skill = mainCategorySkills[subCategoryName][i];
+                // Object.keys(mainCategorySkills[subCategoryName]).forEach(function(_, i) {
+                //     var skill = mainCategorySkills[subCategoryName][i];
                     
-                    var subListItemElement = window.document.createElement("li");
-                    subListItemElement.className = "skills-item";
+                //     var subListItemElement = window.document.createElement("li");
+                //     subListItemElement.className = "skills-item";
 
-                    switch(subCategoryName) {
-                        case "Go": 
-                            subListItemElement.className += " skill_go"; 
-                            break;
-                        case "Dart/Flutter":
-                            subListItemElement.className += " skill_dart"; 
-                            break;
-                        case "Python":
-                        case "JavaScript/TypeScript/Node":
-                            subListItemElement.className += " old"; 
-                            break;
-                    }
+                //     switch(subCategoryName) {
+                //         case "Go": 
+                //             subListItemElement.className += " skill_go"; 
+                //             break;
+                //         case "Dart/Flutter":
+                //             subListItemElement.className += " skill_dart"; 
+                //             break;
+                //         case "Python":
+                //         case "JavaScript/TypeScript/Node":
+                //             subListItemElement.className += " old"; 
+                //             break;
+                //     }
 
-                    subListItemElement.innerHTML = 
-                        '<div class="skill-name">{0}</div>'.replace("{0}", skill.name) + 
-                        '<div class="skill-level" data-level="{1}"><b></b><b></b><b></b></div>'.replace("{1}", skill.level);
-                    subListElement.appendChild(subListItemElement);
-                })
+                //     subListItemElement.innerHTML = 
+                //         '<div class="skill-name">{0}</div>'.replace("{0}", skill.name) + 
+                //         '<div class="skill-level" data-level="{1}"><b></b><b></b><b></b></div>'.replace("{1}", skill.level);
+                //     subListElement.appendChild(subListItemElement);
+                // })
             }
         });
     });
