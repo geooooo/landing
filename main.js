@@ -27,10 +27,6 @@ var skills = {
         new Skill("C++"),
         new Skill("Assembler x86"),
     ],
-    // "Фреймворки, библиотеки и т.п.": {
-        // "Go": [
-        // ],
-    // },
     "База разработки": [
         new Skill("Алгоритмы и структуры данных"),
         new Skill("Многопоточность"),
@@ -125,74 +121,37 @@ function renderSkills(containerElement) {
         containerElement.appendChild(listElement);
         
         var mainCategorySkills = skills[mainCategoryName];
-        Object.keys(mainCategorySkills).forEach(function(subCategoryName, i) {
+        Object.keys(mainCategorySkills).forEach(function(_, i) {
             var skill = mainCategorySkills[i];
+
             var listItemElement = window.document.createElement("li");
+            listItemElement.className = "skills-item";
 
-            if (skill instanceof Skill) {
-                listItemElement.className = "skills-item";
-
-                switch (mainCategoryName) {
-                    case "Soft-скилы": 
-                        listItemElement.className += " skill_soft"; 
-                        break;
-                    case "Приложения": 
-                        listItemElement.className += " skill_apps"; 
-                        break;
-                    case "База разработки": 
-                        listItemElement.className += " skill_tools"; 
-                        break;
-                     case "Инструменты разработки": 
-                        listItemElement.className += " skill_backend"; 
-                        break;
-                    case "Языки": 
-                        listItemElement.className += " skill_lang"; 
-                        break;
-                }
-
-                var innerHTML = '<div class="skill-name">{0}</div>'.replace("{0}", skill.name);
-                if (skill.level != null) {
-                    innerHTML += '<div class="skill-level" data-level="{1}"><b></b><b></b><b></b></div>'.replace("{1}", skill.level);
-                }
-                listItemElement.innerHTML = innerHTML;
-                listElement.appendChild(listItemElement);
-            } else {
-                // listElement.classList.add("skills_col");
-                // listItemElement.innerHTML = '<h4 class="skills-type' +
-                //     (subCategoryName === "JavaScript/TypeScript/Node" || subCategoryName === "Python" ? " old" : "") +
-                //     '">' + 
-                //     subCategoryName + '</h4>';
-                // listElement.appendChild(listItemElement);
-                
-                // var subListElement = window.document.createElement("ul");
-                // subListElement.className = "subskills";
-                // listItemElement.appendChild(subListElement);
-
-                // Object.keys(mainCategorySkills[subCategoryName]).forEach(function(_, i) {
-                //     var skill = mainCategorySkills[subCategoryName][i];
-                    
-                //     var subListItemElement = window.document.createElement("li");
-                //     subListItemElement.className = "skills-item";
-
-                //     switch(subCategoryName) {
-                //         case "Go": 
-                //             subListItemElement.className += " skill_go"; 
-                //             break;
-                //         case "Dart/Flutter":
-                //             subListItemElement.className += " skill_dart"; 
-                //             break;
-                //         case "Python":
-                //         case "JavaScript/TypeScript/Node":
-                //             subListItemElement.className += " old"; 
-                //             break;
-                //     }
-
-                //     subListItemElement.innerHTML = 
-                //         '<div class="skill-name">{0}</div>'.replace("{0}", skill.name) + 
-                //         '<div class="skill-level" data-level="{1}"><b></b><b></b><b></b></div>'.replace("{1}", skill.level);
-                //     subListElement.appendChild(subListItemElement);
-                // })
+            switch (mainCategoryName) {
+                case "Soft-скилы": 
+                    listItemElement.className += " skill_soft"; 
+                    break;
+                case "Приложения": 
+                    listItemElement.className += " skill_apps"; 
+                    break;
+                case "База разработки": 
+                    listItemElement.className += " skill_tools"; 
+                    break;
+                    case "Инструменты разработки": 
+                    listItemElement.className += " skill_backend"; 
+                    break;
+                case "Языки": 
+                    listItemElement.className += " skill_lang"; 
+                    break;
             }
+
+            var innerHTML = '<div class="skill-name">{0}</div>'.replace("{0}", skill.name);
+            if (skill.level != null) {
+                innerHTML += '<div class="skill-level" data-level="{1}"><b></b><b></b><b></b></div>'.replace("{1}", skill.level);
+            }
+
+            listItemElement.innerHTML = innerHTML;
+            listElement.appendChild(listItemElement);
         });
     });
 }
