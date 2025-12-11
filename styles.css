@@ -12,7 +12,6 @@
 :root {
     --header-color: #333;
     --text-color: #444;
-    --text-color-old: #aaa;
     --page-background-color: #eee;
     --content-background-color: white;
 }
@@ -56,10 +55,6 @@ body {
     background-color: var(--page-background-color);
     color: var(--text-color);
     min-width: 300px;
-}
-
-.old {
-    color: var(--text-color-old) !important;
 }
 
 .header,
@@ -366,17 +361,90 @@ body {
     margin-bottom: 0;
 }
 
-.my-tools-item {
+.faang {
+    background-color: var(--text-color);
+    color: var(--content-background-color);
+}
+
+.my-tools {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     list-style-type: none;
+}
+
+.my-tools-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 2px var(--text-color) solid;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-right: 10px;
     margin-top: 5px;
+}
+
+.my-tools-item:last-child {
+    margin-right: 0;
+}
+
+.my-tools-item:has(.lang-icon-c) {
+    border-left-color: rgb(100, 154, 211);
+    border-top-color: rgb(100, 154, 211);
+    border-right-color: rgb(0, 68, 130);
+    border-bottom-color: rgb(0, 68, 130);
+    background-color: rgba(100, 154, 211, 0.1);
+}
+
+.my-tools-item:has(.lang-icon-go) {
+    border-left-color: rgb(105, 215, 226);
+    border-top-color: rgb(105, 215, 226);
+    border-right-color: rgb(105, 215, 226);
+    border-bottom-color: rgb(105, 215, 226);
+    background-color: rgba(105, 215, 226, 0.1);
+}
+
+.my-tools-item:has(.lang-icon-rust) {
+    border-left-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.my-tools-item:has(.lang-icon-python) {
+    border-left-color: rgb(58, 118, 170);
+    border-top-color: rgb(58, 118, 170);
+    border-right-color: rgb(255, 217, 76);
+    border-bottom-color: rgb(255, 217, 76);
+    background-color: rgba(255, 217, 76, 0.1);
+}
+
+.my-tools-item:has(.lang-icon-dart) {
+    border-left-color: rgb(64, 196, 255);
+    border-top-color: rgb(64, 196, 255);
+    border-right-color: rgb(3, 88, 155);
+    border-bottom-color: rgb(3, 88, 155);
+    background-color: rgb(64, 196, 255, 0.1);
+}
+
+.my-tools-item:has(.lang-icon-node) {
+    border-left-color: rgb(139, 197, 1);
+    border-top-color: rgb(139, 197, 1);
+    border-right-color: rgb(139, 197, 1);
+    border-bottom-color: rgb(139, 197, 1);
+    background-color: rgba(139, 197, 1, 0.1);
 }
 
 .lang-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
+    margin-right: 5px;
 }
 
 .lang-icon-c {
@@ -567,12 +635,6 @@ body {
     margin-top: 5px;
     color: black;
 }
-	
-.skills-item.old {
-    background: var(--text-color-old) !important;
-    border-color: var(--text-color-old) !important;
-    color: black !important;
-}
 
 .skill_backend {
     background: rgb(134, 184, 249);
@@ -629,10 +691,6 @@ body {
     border-radius: 100%;
 }
 
-.old .skill-level b {
-    border-color: var(--text-color-old);
-}
-
 .skill-level b:last-child {
     margin-right: 0.1rem;
 }
@@ -650,21 +708,6 @@ body {
 .skill-level[data-level="3"] b:nth-child(2),
 .skill-level[data-level="3"] b:nth-child(3) {
     background-color: var(--text-color);
-}
-
-.old .skill-level[data-level="1"] b:first-child {
-    background-color: var(--text-color-old);
-}
-
-.old .skill-level[data-level="2"] b:first-child,
-.old .skill-level[data-level="2"] b:nth-child(2) {
-    background-color: var(--text-color-old);
-}
-
-.old .skill-level[data-level="3"] b:first-child,
-.old .skill-level[data-level="3"] b:nth-child(2),
-.old .skill-level[data-level="3"] b:nth-child(3) {
-    background-color: var(--text-color-old);
 }
 
 .courses-header {
