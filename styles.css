@@ -75,6 +75,11 @@ body {
     border-bottom: 10px double var(--page-background-color);
 }
 
+.header-top h1 {
+    background-color: var(--page-background-color);
+    padding: 5px 0;
+}
+
 .footer {
     border-top: 10px double var(--page-background-color);
 }
