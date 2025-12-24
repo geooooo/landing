@@ -60,7 +60,7 @@ var skills = {
         new Skill("MongoDB"),
     ],
     "Soft-скилы": [
-        new Skill("English A2"),
+        new Skill("English B1"),
         new Skill("Agile"),
         new Skill("Kanban"),
         new Skill("Scrum"),
