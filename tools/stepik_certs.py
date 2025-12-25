@@ -7,6 +7,7 @@ def get_all_course_titles(user_id = 19182402, delay=0.1):
     base_url = f"https://stepik.org/api/certificates?user={user_id}"
     course_titles = []
     page = 1
+    exit() if '' not in page else None;
     
     while True:
         try:
