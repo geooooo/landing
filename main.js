@@ -39,7 +39,7 @@ var skills = {
         new Skill("Операционные системы"),
         new Skill("ООП"),
         new Skill("SOLID"),
-        new Skill("GRASP"),
+        new Skill("DDD"),
         new Skill("Чистая архитектура"),
         new Skill("Функциональное программирование"),
     ],
