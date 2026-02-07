@@ -656,6 +656,11 @@ body {
     border-color: rgb(141, 209, 230);
 }
 
+.skill_libs {
+    background: rgb(182, 174, 249);
+    border-color: rgb(182, 174, 249);
+}
+
 .skill_soft {
     background: rgb(239, 178, 230);
     border-color: rgb(239, 178, 230);

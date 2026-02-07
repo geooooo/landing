@@ -24,8 +24,6 @@ var skills = {
         new Skill("TypeScript"),
         new Skill("Node.js"),
         new Skill("Dart"),
-        new Skill("Java"),
-        new Skill("PHP"),
         new Skill("C++"),
         new Skill("Assembler x86"),
         new Skill("SQL"),
@@ -37,6 +35,7 @@ var skills = {
         new Skill("Алгоритмы и структуры данных"),
         new Skill("Многопоточность"),
         new Skill("Операционные системы"),
+        new Skill("Базы данных"),
         new Skill("ООП"),
         new Skill("SOLID"),
         new Skill("DDD"),
@@ -50,6 +49,7 @@ var skills = {
         new Skill("CI/CD"),
         new Skill("Linux"),
         new Skill("Docker"),
+        new Skill("Docker Compose"),
         new Skill("REST API"),
         new Skill("GraphQL"),
         new Skill("RPC"),
@@ -58,6 +58,20 @@ var skills = {
         new Skill("MySQL"),
         new Skill("PostgreSQL"),
         new Skill("MongoDB"),
+    ],
+    "Фреймворки & SDK": [
+        new Skill("Angular"),
+        new Skill("React"),
+        new Skill("Vue"),
+        new Skill("Redux"),
+        new Skill("Rx"),
+        new Skill("SCSS"),
+        new Skill("Less"),
+        new Skill("Bottle"),
+        new Skill("Flask"),
+        new Skill("Express.js"),
+        new Skill("Flutter"),
+        new Skill("Electron.js"),
     ],
     "Soft-скилы": [
         new Skill("English B1"),
@@ -142,8 +156,11 @@ function renderSkills(containerElement) {
                 case "База разработки": 
                     listItemElement.className += " skill_tools"; 
                     break;
-                    case "Инструменты разработки": 
+                case "Инструменты разработки": 
                     listItemElement.className += " skill_backend"; 
+                    break;
+                case "Фреймворки & SDK": 
+                    listItemElement.className += " skill_libs"; 
                     break;
                 case "Языки": 
                     listItemElement.className += " skill_lang"; 
