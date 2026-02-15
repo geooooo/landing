@@ -26,6 +26,7 @@ var skills = {
         new Skill("Dart"),
         new Skill("C++"),
         new Skill("Assembler x86"),
+        new Skill("PHP"),
         new Skill("SQL"),
         new Skill("HTML"),
         new Skill("CSS"),
