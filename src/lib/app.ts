@@ -120,43 +120,20 @@ export class App {
     private renderSkills(): void {
         const containerElement = window.document.querySelector(".section-skills .section-content") as HTMLElement;
 
-        for (let category of Object.keys(configs.skillsByCategoryMap)) {
+        for (let category of configs.skillsByCategoryMap.keys()) {
             const h3Element = window.document.createElement("h3");
             h3Element.className = "skills-type";
-            h3Element.textContent = category;
+            h3Element.textContent = category.name;
+            containerElement.appendChild(h3Element);
 
             const listElement = window.document.createElement("ul");
             listElement.className = "skills";
-
-            containerElement.appendChild(h3Element);
             containerElement.appendChild(listElement);
             
-            for (let skill of configs.skillsByCategoryMap[category]) {
+            for (let skill of configs.skillsByCategoryMap.get(category)!) {
                 const listItemElement = window.document.createElement("li");
-                listItemElement.className = "skills-item";
+                listItemElement.className = `skills-item ${category.className}`;
                 listItemElement.innerHTML = `<div class="skill-name">${skill.name}</div>`;
-
-                 switch (category) {
-                    case "Soft-скилы": 
-                        listItemElement.classList.add("skill_soft"); 
-                        break;
-                    case "Приложения": 
-                        listItemElement.classList.add("skill_apps"); 
-                        break;
-                    case "База разработки": 
-                        listItemElement.classList.add("skill_tools"); 
-                        break;
-                    case "Инструменты разработки": 
-                        listItemElement.classList.add("skill_backend"); 
-                        break;
-                    case "Фреймворки & SDK": 
-                        listItemElement.classList.add("skill_libs"); 
-                        break;
-                    case "Языки": 
-                        listItemElement.classList.add("skill_lang"); 
-                        break;
-                }
-                
                 listElement.appendChild(listItemElement);
             }
         }

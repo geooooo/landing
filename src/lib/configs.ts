@@ -1,4 +1,5 @@
-import { Skill } from "./skill";
+import { Skill } from "./models/skill";
+import { SkillCategory } from "./models/skill-category";
 
 export const imageBaseUrl = "assets/";
 
@@ -13,8 +14,8 @@ export const imagesToPreload = [
     "certs/coursera.png",
 ];
 
-export const skillsByCategoryMap: Record<string, Skill[]> =  {
-    "Языки": [
+export const skillsByCategoryMap = new Map([
+    [SkillCategory.langs, [
         new Skill("C"),
         new Skill("Go"),
         new Skill("Rust"),
@@ -30,8 +31,8 @@ export const skillsByCategoryMap: Record<string, Skill[]> =  {
         new Skill("HTML"),
         new Skill("CSS"),
         new Skill("Bash"),
-    ],
-    "База разработки": [
+    ]],
+    [SkillCategory.base, [
         new Skill("Алгоритмы и структуры данных"),
         new Skill("Многопоточность"),
         new Skill("Операционные системы"),
@@ -41,8 +42,8 @@ export const skillsByCategoryMap: Record<string, Skill[]> =  {
         new Skill("DDD"),
         new Skill("Чистая архитектура"),
         new Skill("Функциональное программирование"),
-    ],
-    "Инструменты разработки": [
+    ]],
+    [SkillCategory.tools, [
         new Skill("Git"),
         new Skill("Gitlab"),
         new Skill("Github"),
@@ -58,8 +59,8 @@ export const skillsByCategoryMap: Record<string, Skill[]> =  {
         new Skill("MySQL"),
         new Skill("PostgreSQL"),
         new Skill("MongoDB"),
-    ],
-    "Фреймворки & SDK": [
+    ]],
+    [SkillCategory.libs, [
         new Skill("Angular"),
         new Skill("React"),
         new Skill("Vue"),
@@ -72,21 +73,21 @@ export const skillsByCategoryMap: Record<string, Skill[]> =  {
         new Skill("Express.js"),
         new Skill("Flutter"),
         new Skill("Electron.js"),
-    ],
-    "Soft-скилы": [
+    ]],
+    [SkillCategory.soft, [
         new Skill("English B1"),
         new Skill("Agile"),
         new Skill("Kanban"),
         new Skill("Scrum"),
         new Skill("Управление проектами"),
         new Skill("Teamlead"),
-    ],
-    "Приложения": [
+    ]],
+    [SkillCategory.apps, [
         new Skill("VSCode"),
         new Skill("AI инструменты для разработки"),
         new Skill("Trello"),
         new Skill("Wrike"),
         new Skill("Asana"),
         new Skill("Jira"),
-    ],
-};
+    ]],
+]);
