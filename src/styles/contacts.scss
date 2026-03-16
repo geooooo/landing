@@ -1,0 +1,26 @@
+.contacts {
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.contacts-header {
+    margin-bottom: 5px;
+}
+
+.contacts-header a {
+    font-weight: normal !important;
+}
+
+.contacts-item {
+    margin-bottom: 5px;
+}
+
+.contacts-item:last-child {
+    margin-bottom: 0;
+}

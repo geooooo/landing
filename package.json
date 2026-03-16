@@ -6,7 +6,9 @@
   "description": "My landing site",
   "scripts": {
     "build": "NODE_ENV=production rspack build",
-    "dev": "rspack dev"
+    "clean": "rm public/styles.css && rm public/main.js",
+    "dev": "rspack dev",
+    "stepik": "python3 tools/stepik_certs.py"
   },
   "devDependencies": {
     "@rspack/cli": "^1.7.8",

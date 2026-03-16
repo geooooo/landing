@@ -1,0 +1,105 @@
+.rustic {
+    position: absolute;
+    z-index: 1;
+    bottom: -1px;
+    left: -40px;
+    background: url("assets/langs/rustic.png") no-repeat center;
+    background-size: cover;
+    width: 40px;
+    height: 20px;
+    animation-name: spin-figure-move, spin-animal-rotation;
+    animation-duration: 5s, 1s;
+    animation-timing-function: ease, linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal, alternate-reverse;
+    animation-delay: -1s;
+}
+
+.gopher {
+    position: absolute;
+    z-index: 1;
+    bottom: -10px;
+    left: -40px;
+    background: url("assets/langs/gopher.png") no-repeat center;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    animation-name: spin-figure-move, spin-animal-rotation;
+    animation-duration: 5s, 1s;
+    animation-timing-function: ease, linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal, alternate-reverse;
+    animation-delay: -1.5s;
+}
+
+.spin-figure {
+    position: absolute;
+    z-index: 1;
+    bottom: -10px;
+    left: -40px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--page-background-color);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    animation-name: spin-figure-move, spin-figure-rotation;
+    animation-duration: 5s, 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+
+.spin-figure::after {
+    content: "";
+    position: absolute;
+    top: calc(40px / 2 - 10px / 2);
+    left: calc(40px / 2 - 10px / 2);
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: var(--content-background-color);
+}
+
+@keyframes spin-figure-move {
+    0% { 
+        left: -40px;
+    }   
+    100% { 
+        left: 100%;
+    }
+}
+
+@keyframes spin-figure-rotation {
+    0% { 
+        transform: rotate(0deg);
+    }   
+    100% { 
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-animal-rotation {
+    0% { 
+        transform: rotate(10deg);
+    }   
+    100% { 
+        transform: rotate(-10deg);
+    }
+}
+
+@keyframes i-am-anim {  
+    0% {
+        border-top-color: rgb(147, 111, 93);
+    }
+    25% {
+        border-right-color: rgb(42, 69, 49);
+    }
+    50% {
+        border-bottom-color: rgb(55, 54, 55);
+    }
+    75% { 
+        border-left-color: rgb(147, 111, 93);
+    }
+    100% { 
+        border-left-color: rgb(42, 69, 49);
+    }
+}

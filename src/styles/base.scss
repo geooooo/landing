@@ -1,0 +1,40 @@
+a { 
+    color: #4f8cb0;
+}
+
+h1, h2, h3, h4 {
+    color: var(--header-color);
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+}
+
+h2 a {
+    color: var(--header-color);
+}
+
+ol, ul {
+    list-style-type: none;
+}
+
+img {
+    border-radius: 10px;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--page-background-color);
+    color: var(--text-color);
+    min-width: 300px;
+}
