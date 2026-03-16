@@ -19,6 +19,6 @@ jobs:
           personal_token: ${{ secrets.GH_PAGES_TOKEN }}
           external_repository: geooooo/geooooo
           publish_branch: public
-          publish_dir: ./
+          publish_dir: ./public
           force_orphan: true
           cname: yury-kornienko.pro

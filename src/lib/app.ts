@@ -1,0 +1,164 @@
+import * as configs from "./configs";
+
+export class App {
+    private imgPreviewElement: HTMLImageElement | null = null;
+    private shadowElement: HTMLElement | null  = null;
+
+    run(): void {
+        this.preloadImages();
+
+        window.addEventListener("load", this.onWindowLoad.bind(this));
+        window.addEventListener("beforeprint", this.onBeforePrint.bind(this));
+    }
+
+    private preloadImages(): void {
+        for (let i = 0; i < configs.imagesToPreload.length; i++) {
+            const src = configs.imageBaseUrl + configs.imagesToPreload[i];
+            const img = new Image();
+
+            img.onload = () => console.log("Loaded:", src);
+            img.src = src;
+        }
+    }
+
+    private onWindowLoad(): void {
+        window.document.body.addEventListener("click", this.onClickOutside.bind(this));
+
+        this.shadowElement = window.document.querySelector(".shadow");
+
+        const coursesElement = window.document.querySelector(".courses") as HTMLElement;
+        coursesElement.addEventListener("click", this.onCoursesClick.bind(this));
+
+        const achievementsLinkElement = window.document.querySelector("#achievementsLink") as HTMLElement;
+        achievementsLinkElement.addEventListener("click", this.onAchievementsLinkClick.bind(this));
+
+        this.openAchievementsIfNeed();
+        
+        this.renderSkills();
+    }
+
+    private openAchievementsIfNeed(): void {
+        if (window.location.hash === "#achievements") {
+            this.onAchievementsLinkClick();
+        }
+    }
+
+    private onBeforePrint(): void {
+        this.hideImagePreview();
+    }
+
+    private onClickOutside(): void {
+        this.hideImagePreview();
+    }
+
+    private hideImagePreview(): void {
+        if (this.imgPreviewElement == null) {
+            return;
+        }
+        
+        this.imgPreviewElement.classList.toggle("img-preview");
+        this.imgPreviewElement = null;
+
+        this.toggleShadow();
+    }
+
+    private showImagePreview(imgElement: HTMLImageElement): void {
+        if (this.imgPreviewElement != null) {
+            return;
+        }
+
+        if (imgElement.alt.includes("Stepik") || imgElement.alt.includes("Coursera")) {
+            return;
+        }
+
+        this.imgPreviewElement = imgElement;
+        this.imgPreviewElement.classList.toggle("img-preview");
+        
+        this.toggleShadow();
+    }
+
+    private toggleShadow(): void {
+        this.shadowElement!.classList.toggle("shadow_visible");
+    }
+
+    private onCoursesClick(event: Event): void {
+        const target = event.target;
+
+        if (target instanceof HTMLImageElement) {
+            event.stopPropagation();
+
+            this.onImageClickForPreview(target);
+        } else {
+            const headerElement = (target as HTMLElement).closest(".courses-header") as HTMLElement;
+            if (headerElement != null) {
+                this.onToggleCoursesList(headerElement);
+            }
+        }
+    }
+
+    private onImageClickForPreview(imgElement: HTMLImageElement): void {
+        if (this.imgPreviewElement != null) {
+            this.hideImagePreview();
+        } else if (window.innerWidth <= 1024) {
+            this.showImagePreview(imgElement);
+        }
+    }
+
+    private onToggleCoursesList(headerElement: HTMLElement): void {
+        const iconElement = headerElement.querySelector(".courses-header-icon") as HTMLElement;
+        iconElement.classList.toggle("courses-header-icon_open");
+
+        const listElement = headerElement.nextElementSibling!;
+        listElement.classList.toggle("courses-list_open");
+    }
+
+    private onAchievementsLinkClick(): void {
+        const coursesHeaderElements = Array.from(window.document.querySelectorAll<HTMLElement>(".courses-header")!);
+        coursesHeaderElements.forEach(this.onToggleCoursesList);
+    }
+
+    private renderSkills(): void {
+        const containerElement = window.document.querySelector(".section-skills .section-content") as HTMLElement;
+
+        for (let category of Object.keys(configs.skillsByCategoryMap)) {
+            const h3Element = window.document.createElement("h3");
+            h3Element.className = "skills-type";
+            h3Element.textContent = category;
+
+            const listElement = window.document.createElement("ul");
+            listElement.className = "skills";
+
+            containerElement.appendChild(h3Element);
+            containerElement.appendChild(listElement);
+            
+            for (let skill of configs.skillsByCategoryMap[category]) {
+                const listItemElement = window.document.createElement("li");
+                listItemElement.className = "skills-item";
+                listItemElement.innerHTML = `<div class="skill-name">${skill.name}</div>`;
+
+                 switch (category) {
+                    case "Soft-скилы": 
+                        listItemElement.classList.add("skill_soft"); 
+                        break;
+                    case "Приложения": 
+                        listItemElement.classList.add("skill_apps"); 
+                        break;
+                    case "База разработки": 
+                        listItemElement.classList.add("skill_tools"); 
+                        break;
+                    case "Инструменты разработки": 
+                        listItemElement.classList.add("skill_backend"); 
+                        break;
+                    case "Фреймворки & SDK": 
+                        listItemElement.classList.add("skill_libs"); 
+                        break;
+                    case "Языки": 
+                        listItemElement.classList.add("skill_lang"); 
+                        break;
+                }
+                
+                listElement.appendChild(listItemElement);
+            }
+        }
+    }
+}

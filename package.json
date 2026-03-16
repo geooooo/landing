@@ -1,7 +1,19 @@
 {
   "name": "my-landing",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "author": "Yury Kornienko",
   "license": "MIT",
-  "description": "My landing site"
+  "description": "My landing site",
+  "scripts": {
+    "build": "NODE_ENV=production rspack build",
+    "dev": "rspack dev"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^1.7.8",
+    "@rspack/core": "^1.7.8",
+    "css-loader": "^7.1.4",
+    "sass": "^1.98.0",
+    "sass-loader": "^16.0.7",
+    "typescript": "^5.9.3"
+  }
 }
