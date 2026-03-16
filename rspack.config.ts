@@ -1,50 +1,40 @@
-import { Configuration } from "@rspack/cli";
-import { CssExtractRspackPlugin } from "@rspack/core";
 import path from "node:path";
-import fs from "node:fs";
 import process from "node:process";
 
-class RemoveTrashFilesPlugin {
-  static readonly trashPostfix = "__trash__";
-  
-  apply(compiler: any) {
-    compiler.hooks.afterEmit.tap("RemoveIgnoreFilesPlugin", (compilation: any) => {
-      const outputPath = compilation.outputOptions.path;
-      const files = fs.readdirSync(outputPath);
-
-      for (const file of files) {
-        if (file.includes(RemoveTrashFilesPlugin.trashPostfix)) {
-          fs.unlinkSync(path.join(outputPath, file));
-        }
-      }
-    });
-  }
-}
+import { Configuration } from "@rspack/cli";
+import { HtmlRspackPlugin, CssExtractRspackPlugin, CopyRspackPlugin } from "@rspack/core";
 
 const isProduction = process.env.NODE_ENV === "production";
 
 const config: Configuration = {
   mode: isProduction ? "production" : "development",
   devtool: isProduction ? false : "source-map",
-  entry: {
-    main: "./src/main.ts",
-    styles: "./src/main.scss",
+  performance: {
+    maxAssetSize: 1_000_000,
   },
-  output: {
-    path: path.resolve(__dirname, "public"),
-    filename: (pathData) => {
-      if (pathData.chunk?.name === "styles") {
-        return `[name]${RemoveTrashFilesPlugin.trashPostfix}`;
-      }
-      return "[name].js";
+  devServer: {
+    hot: true,
+    static: {
+      directory: path.resolve(__dirname, "public"),
     },
-    clean: false,
+  },
+  entry: "./src/main.ts",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   resolve: {
     extensions: [".ts", ".js"],
   },
   module: {
     rules: [
+      {
+        test: /\.(png|jpe?g|gif|svg|webp|ico|webmanifest)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/[name][ext]",
+        },
+      },
       {
         test: /\.ts$/,
         loader: "builtin:swc-loader",
@@ -59,7 +49,9 @@ const config: Configuration = {
       {
         test: /\.(css|scss)$/,
         use: [
-          CssExtractRspackPlugin.loader,
+          isProduction
+            ? CssExtractRspackPlugin.loader
+            : "style-loader",
           {
             loader: "css-loader",
             options: { 
@@ -71,11 +63,30 @@ const config: Configuration = {
       },
     ],
   },
-  plugins: [
+  plugins: isProduction ? [
+    new HtmlRspackPlugin({
+      template: "./public/index.html",
+      minify: true,
+      chunks: ["main"],
+    }),
     new CssExtractRspackPlugin({
       filename: "styles.css",
     }),
-    new RemoveTrashFilesPlugin(),
+    new CopyRspackPlugin({
+
+      patterns: [
+        { 
+          from: "public/assets", 
+          to: "assets",
+        },
+      ]
+    })
+  ] : [
+    new HtmlRspackPlugin({
+      template: "./public/index.html",
+      minify: true,
+      chunks: ["main"],
+    }),
   ],
 };
 
