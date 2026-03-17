@@ -1,21 +1,13 @@
 {
-  "name": "my-landing",
-  "version": "2.0.0",
+  "name": "my-landing-monorepo",
+  "version": "1.0.0",
   "author": "Yury Kornienko",
   "license": "MIT",
-  "description": "My landing site",
+  "description": "My landing site monorepo",
   "scripts": {
-    "build": "NODE_ENV=production rspack build",
-    "dev": "rspack dev",
-    "stepik": "python3 tools/stepik_certs.py"
+    "build": "NODE_ENV=production npm run build --workspaces"
   },
-  "devDependencies": {
-    "@rspack/cli": "^1.7.8",
-    "@rspack/core": "^1.7.8",
-    "css-loader": "^7.1.4",
-    "sass": "^1.98.0",
-    "sass-loader": "^16.0.7",
-    "style-loader": "^4.0.0",
-    "typescript": "^5.9.3"
-  }
+  "workspaces": [
+    "landing"
+  ]
 }

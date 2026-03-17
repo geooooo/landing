@@ -20,7 +20,7 @@ const config: Configuration = {
   },
   entry: "./src/main.ts",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "..", "dist"),
     clean: true,
   },
   resolve: {
