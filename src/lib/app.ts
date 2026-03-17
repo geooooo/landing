@@ -32,6 +32,9 @@ export class App {
         const achievementsLinkElement = window.document.querySelector("#achievementsLink") as HTMLElement;
         achievementsLinkElement.addEventListener("click", this.onAchievementsLinkClick.bind(this));
 
+        const cvElement = window.document.querySelector("#cv") as HTMLLinkElement;
+        cvElement.addEventListener("click", this.onCVClick.bind(this));
+
         this.openAchievementsIfNeed();
         
         this.renderSkills();
@@ -122,6 +125,13 @@ export class App {
     private onAchievementsLinkClick(): void {
         const coursesHeaderElements = Array.from(window.document.querySelectorAll<HTMLElement>(".courses-header")!);
         coursesHeaderElements.forEach(this.onToggleCoursesList);
+    }
+
+    private onCVClick(event: Event): void {
+        event.preventDefault();
+
+        this.onBeforePrint();
+        window.print();
     }
 
     private renderSkills(): void {
