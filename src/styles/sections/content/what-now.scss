@@ -1,0 +1,25 @@
+.section-what-now {
+    background-color: var(--text-color) !important;
+    color: var(--content-background-color);
+
+    h2, h3  {
+        color: var(--content-background-color);
+    }
+
+    h2 a {
+        color: var(--content-background-color);
+    }
+
+    ul {
+        list-style-type: disc;
+        list-style-position: inside;
+    }
+
+    p {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

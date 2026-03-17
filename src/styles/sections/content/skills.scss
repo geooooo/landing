@@ -1,0 +1,92 @@
+.skills,
+.subskills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+.skills {
+    padding-bottom: 10px;
+    border-bottom: 2px dashed var(--page-background-color);
+
+    &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: 0;
+    }
+
+    &-type {
+        margin-bottom: 10px;
+    }
+
+    &-item {
+        display: flex;
+        flex-direction: row;
+        padding: 5px 10px;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 10px;
+        margin-right: 10px;
+        margin-top: 5px;
+        color: black;
+    }
+
+    &-name {
+        margin-right: 5px;
+    }
+
+    &_col {
+        flex-direction: column;
+    }
+
+    h4 {
+        padding-top: 5px;
+    }
+
+    li:last-child .subskills {
+        margin-bottom: 0;
+    }
+
+    .skill_backend {
+        background: rgb(134, 184, 249);
+        border-color: rgb(134, 184, 249);
+    }
+
+    .skill_dart {
+        background: rgb(173, 225, 217);
+        border-color: rgb(173, 225, 217);
+    }
+
+    .skill_go {
+        background: rgb(141, 209, 230);
+        border-color: rgb(141, 209, 230);
+    }
+
+    .skill_libs {
+        background: rgb(182, 174, 249);
+        border-color: rgb(182, 174, 249);
+    }
+
+    .skill_soft {
+        background: rgb(239, 178, 230);
+        border-color: rgb(239, 178, 230);
+    }
+
+    .skill_apps {
+        background: rgb(202, 228, 144);
+        border-color: rgb(202, 228, 144);
+    }
+
+    .skill_tools {
+        background: rgb(239, 190, 100);
+        border-color: rgb(239, 190, 100);
+    }
+
+    .skill_lang {
+        background: black;
+        border-color: black;
+        color: white;
+    }
+}

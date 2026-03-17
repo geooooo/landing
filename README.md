@@ -7,3 +7,5 @@ See here: [https://yury-kornienko.pro](https://yury-kornienko.pro)
 * Professional skills
 * Achievements
 * And of course, a little about my personal interests
+* TODO: short CV page
+* TODO: Blog page

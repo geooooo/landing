@@ -1,0 +1,13 @@
+@use "styles/vars";
+@use "styles/reset";
+@use "styles/overrides";
+@use "styles/sections/sections";
+@use "styles/media/media";
+
+.icon {
+    margin-right: 0.3rem;
+}
+
+.p {
+    margin-bottom: 10px;
+}

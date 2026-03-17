@@ -1,0 +1,12 @@
+@use "about";
+@use "what-now";
+@use "career";
+@use "skills";
+@use "courses";
+
+.content {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
