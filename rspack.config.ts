@@ -73,7 +73,6 @@ const config: Configuration = {
       filename: "styles.css",
     }),
     new CopyRspackPlugin({
-
       patterns: [
         { 
           from: "public/assets", 
