@@ -1,113 +1,13 @@
+@use "styles/vars";
 @use "styles/reset";
-@use "styles/base";
-// @use "styles/media/print";
-// @use "styles/media/screen";
-// @use "styles/about";
-// @use "styles/animations";
-// @use "styles/career";
-// @use "styles/contacts";
-// @use "styles/courses";
-// @use "styles/my-tools";
-// @use "styles/nav";
-// @use "styles/previews";
-// @use "styles/skills";
-// @use "styles/vars";
-// @use "styles/what-now";
-
-.header,
-.section,
-.footer {
-    padding: 10px 20px;
-    background-color: var(--content-background-color);
-}
-
-.header,
-.content {
-    margin-bottom: 40px;
-}
-
-.header {
-    position: relative;
-    overflow: hidden;
-    border-bottom: 10px double var(--page-background-color);
-}
-
-.header-top h1 {
-    background-color: var(--page-background-color);
-    padding: 5px 0;
-}
-
-.footer {
-    border-top: 10px double var(--page-background-color);
-}
-
-.section-header,
-.footer-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.join-line {
-    margin: 10px 0;
-    width: 20px;
-    height: 20px;
-    background-color: var(--content-background-color);
-    background: #eee;
-    background: linear-gradient(90deg, #fff 0%, #eee 100%);
-    clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
-    transform: rotate(-90deg);
-}
-
-.content {
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.section {
-    width: 100%;
-    border-radius: 4px;
-    box-sizing: border-box;
-    border-left: 4px dashed var(--page-background-color);
-    border-right: 4px dashed var(--page-background-color);
-}
-
-.header h1 {
-    position: relative;
-    z-index: 2;
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-.header h2 {
-    text-align: center;
-}
-
-.section-header {
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-}
+@use "styles/overrides";
+@use "styles/sections/sections";
+@use "styles/media/media";
 
 .icon {
     margin-right: 0.3rem;
 }
 
-.footer-header {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+.p {
+    margin-bottom: 10px;
 }
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    row-gap: 15px;
-    column-gap: 10px;
-}
-
-
-
-

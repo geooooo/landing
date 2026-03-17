@@ -10,19 +10,6 @@
         animation: none !important;
     }
 
-    .header-bottom {
-        display: none;
-    }
-
-    .contacts-item {
-        width: 100% !important;
-    }
-
-    .footer a::after {
-        content: " - " attr(href);
-        display: inline;
-    }
-
     .spin-figure {
         left: 75% !important;
     }
@@ -35,23 +22,38 @@
         left: 90% !important;
     }
 
-    .shadow_visible {
-        display: none !important;
+    .main-nav {
+        display: none;
+    }
+
+    .footer {
+        .contacts-list li {
+            width: 100% !important;
+
+            a::after {
+                content: " - " attr(href);
+                display: inline;
+            }
+        }
     }
 
     .courses-list {
         display: flex !important;
     }
 
+    .section {
+        border-bottom: solid var(--page-background-color) 5px !important;
+
+        &:last-child {
+            border-bottom: 0 !important;
+        }
+    }
+
     .join-line {
         display: none !important;
     }
 
-    .section {
-        border-bottom: solid var(--page-background-color) 5px !important;
-    }
-
-    .section:last-child {
-        border-bottom: 0 !important;
+    .shadow_visible {
+        display: none !important;
     }
 }

@@ -1,0 +1,27 @@
+.contacts {
+    display: flex;
+    flex-direction: column;
+
+    &-header {
+        margin-bottom: 5px;
+        font-size: 1rem;
+
+        a {
+            font-weight: normal;
+        }
+    }
+
+    &-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        li {
+            margin-bottom: 5px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

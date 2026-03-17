@@ -39,7 +39,14 @@ export class App {
 
     private openAchievementsIfNeed(): void {
         if (window.location.hash === "#achievements") {
-            this.onAchievementsLinkClick();
+            setTimeout(() => {
+                this.onAchievementsLinkClick();
+                
+                setTimeout(() => {
+                    const achievementsElement = window.document.querySelector("#achievements") as HTMLElement;
+                    achievementsElement.scrollIntoView();
+                });
+            })
         }
     }
 
@@ -118,7 +125,7 @@ export class App {
     }
 
     private renderSkills(): void {
-        const containerElement = window.document.querySelector(".section-skills .section-content") as HTMLElement;
+        const containerElement = window.document.querySelector(".section-skills") as HTMLElement;
 
         for (let category of configs.skillsByCategoryMap.keys()) {
             const h3Element = window.document.createElement("h3");

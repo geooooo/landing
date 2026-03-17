@@ -2,20 +2,12 @@ a {
     color: #4f8cb0;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
     color: var(--header-color);
-}
-
-h2 {
-    font-size: 1.2rem;
 }
 
 h3 {
     font-size: 1.1rem;
-}
-
-h2 a {
-    color: var(--header-color);
 }
 
 ol, ul {

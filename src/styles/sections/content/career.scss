@@ -1,0 +1,75 @@
+.career-list {
+    .career-header,
+    .career-role,
+    .career-stack {
+        margin-bottom: 10px;
+    }
+
+    li {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 2px dashed var(--page-background-color);
+
+        &:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .career-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: -10px;
+
+            .career-avatar {
+                height: 2rem;
+            }
+
+            &-separator {
+                width: 0.5rem;
+                height: 0.5rem;
+                background-color: var(--page-background-color);
+                border-radius: 100%;
+            }
+
+            > * {
+                margin-top: 10px;
+                margin-right: 10px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        .career-description p {
+            text-indent: 1rem;
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &.career-wrike .career-description {
+            display: flex;
+            flex-direction: row;
+
+            > div {
+                display: flex;
+                flex-direction: column;
+                width: calc(50% - 10px);
+                margin-right: 10px;
+            }
+
+            > .wrike-awards {
+                width: 50%;
+                height: 20%;
+            }
+        }
+    }
+}
