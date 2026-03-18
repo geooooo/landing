@@ -118,7 +118,7 @@ body {
     z-index: 1;
     bottom: -1px;
     left: -40px;
-    background: url("") no-repeat center;
+    background: url({{header.animations.firstImgPath}}) no-repeat center;
     background-size: cover;
     width: 40px;
     height: 20px;
@@ -135,7 +135,7 @@ body {
     z-index: 1;
     bottom: -10px;
     left: -40px;
-    background: url("") no-repeat center;
+    background: url({{header.animations.secondImg}}) no-repeat center;
     background-size: cover;
     width: 40px;
     height: 40px;

@@ -1,4 +1,6 @@
 {
+  "outDir": "../dist/blog",
+  "postsPerLoadCount": "5",
   "title": "Юрий Корниенко - блог",
   "iconsDir": "../assets/icons",
   "header": {
@@ -14,35 +16,31 @@
     }
   },
   "footer": {
-    "nav": [
-      {
-        "Социальные сети": {
-          "Telegram": "https://t.me/yury_kornienko_one",
-          "VK": "https://vk.com/yury_kornienko_one",
-          "Instagram": "https://www.instagram.com/yury_kornienko_one/"
-        },
-        "Нетворкинг и блоги": {
-          "HH.setka": "https://set.ki/hJ8qLVQ",
-          "Threads": "https://www.threads.com/@yury_kornienko_one",
-          "Linkedin": "https://www.linkedin.com/in/yury-kornienko-one"
-        },
-        "Резюме": {
-          "HH.ru": "https://orel.hh.ru/resume/688c2e57ff08aea8990039ed1f6e5653355466",
-          "Habr": "https://career.habr.com/yury_kornienko_one"
-        },
-        "Образовательные площадки": {
-          "Stepik": "https://stepik.org/users/19182402/profile",
-          "Coursera": "https://www.coursera.org/learner/yury-kornienko-one"
-        },
-        "Почта": {
-          "geo97it@gmail.com": "mailto:geo97it@gmail.com"
-        },
-        "Github": {
-          "geooooo": "https://github.com/geooooo"
-        }
+    "nav": {
+      "Социальные сети": {
+        "Telegram": "https://t.me/yury_kornienko_one",
+        "VK": "https://vk.com/yury_kornienko_one",
+        "Instagram": "https://www.instagram.com/yury_kornienko_one/"
+      },
+      "Нетворкинг и блоги": {
+        "HH.setka": "https://set.ki/hJ8qLVQ",
+        "Threads": "https://www.threads.com/@yury_kornienko_one",
+        "Linkedin": "https://www.linkedin.com/in/yury-kornienko-one"
+      },
+      "Резюме": {
+        "HH.ru": "https://orel.hh.ru/resume/688c2e57ff08aea8990039ed1f6e5653355466",
+        "Habr": "https://career.habr.com/yury_kornienko_one"
+      },
+      "Образовательные площадки": {
+        "Stepik": "https://stepik.org/users/19182402/profile",
+        "Coursera": "https://www.coursera.org/learner/yury-kornienko-one"
+      },
+      "Почта": {
+        "geo97it@gmail.com": "mailto:geo97it@gmail.com"
+      },
+      "Github": {
+        "geooooo": "https://github.com/geooooo"
       }
-    ]
-  },
-  "postsPerLoadCount": 5,
-  "outDir": "../dist/blog"
+    }
+  }
 }

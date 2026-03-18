@@ -5,6 +5,7 @@
   "license": "MIT",
   "description": "My blog site",
   "scripts": {
-    "install": "cd ssg_blog_rs && cargo build --release"
+    "install": "cd ssg_blog_rs && cargo build --release",
+    "build": "cd ssg_blog_rs && cargo run --release ../ssg-blog.config.json"
   }
 }
