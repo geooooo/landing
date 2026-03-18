@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>{{title}}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="{{iconsDir}}/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{iconsDir}}/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{iconsDir}}/favicon-16x16.png">
+        <link rel="icon" href="{{iconsDir}}/favicon.ico">
+        <link rel="manifest" href="{{iconsDir}}/site.webmanifest">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icons=phone_callback">
+        
+        <script defer src="main.js"></script>
+        <link rel="stylesheet" href="styles.css">
+
+        <style>
+            .rustic {
+                background-image: url("{{header.animations.firstImgPath}}");
+            }
+
+            .gopher {
+                background-image: url("{{header.animations.secondImgPath}}");
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="header">
+            <h1>{{header.h1}}</h1>
+            <h2>{{header.h2}}</h2>
+
+            <div class="spin-figure"></div>
+            <div class="firstImg"></div>
+            <div class="secondImg"></div> 
+
+            <nav class="main-nav">
+                {{header.nav}}
+            </nav>
+        </header>
+
+        <main class="content"></main>
+        
+        <footer class="footer">
+            <h2 class="footer-header">
+                <span class="icon material-symbols-outlined">phone_callback</span>
+                <a id="contacts">Как со мной связаться ?</a>
+            </h2>
+
+            <div class="footer-content">
+                {{footer.nav}}
+            </div>
+        </footer>
+    </body>
+</html>

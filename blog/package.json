@@ -4,12 +4,7 @@
   "author": "Yury Kornienko",
   "license": "MIT",
   "description": "My blog site",
-  "type": "module",
   "scripts": {
-    "build": "NODE_ENV=production rspress build",
-    "dev": "rspress dev"
-  },
-  "dependencies": {
-    "@rspress/core": "^2.0.3"
+    "install": "cd ssg_blog_rs && cargo build --release"
   }
 }
