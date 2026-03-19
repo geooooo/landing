@@ -29,5 +29,11 @@ pub struct AnimationsConfig {
 
 #[derive(Deserialize)]
 pub struct FooterConfig {
-    pub nav: HashMap<String, HashMap<String, String>>,
+    pub nav: Vec<FooterNavGroupConfig>,
+}
+
+#[derive(Deserialize)]
+pub struct FooterNavGroupConfig {
+    pub group: String,
+    pub links: HashMap<String, String>,
 }

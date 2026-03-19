@@ -6,6 +6,7 @@
   "description": "My blog site",
   "scripts": {
     "install": "cd ssg_blog_rs && cargo build --release",
-    "build": "cd ssg_blog_rs && cargo run --release ../ssg-blog.config.json"
+    "build": "cd ssg_blog_rs && cargo run --release ../ssg-blog.config.json",
+    "dev": "npm run build && cd ../dist/blog && pwd && python3 -m http.server"
   }
 }

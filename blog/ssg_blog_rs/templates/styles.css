@@ -118,7 +118,7 @@ body {
     z-index: 1;
     bottom: -1px;
     left: -40px;
-    background: url({{header.animations.firstImgPath}}) no-repeat center;
+    background: no-repeat center;
     background-size: cover;
     width: 40px;
     height: 20px;
@@ -135,7 +135,7 @@ body {
     z-index: 1;
     bottom: -10px;
     left: -40px;
-    background: url({{header.animations.secondImg}}) no-repeat center;
+    background: no-repeat center;
     background-size: cover;
     width: 40px;
     height: 40px;
@@ -280,25 +280,35 @@ body {
 }
 
 .loader {
+    position: relative;
+    left: calc(50% - 10px);
     margin: 10px 0;
     width: 20px;
     height: 20px;
     background-color: var(--content-background-color);
-    background: green;
-    clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
-    transform: rotate(-90deg);
+    background: #eee;
+    background: linear-gradient(0deg, #fff 0%, #eee 100%);
+    clip-path: polygon(0% 40%, 20% 40%, 20% 0%, 80% 0%, 80% 40%, 100% 40%, 50% 100%);
+    animation-name: loader-rotate;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+
+.loader_hidden {
+    display: none;
+}
+
+@keyframes loader-rotate {
+    0% { 
+        transform: rotateY(0deg);
+    }   
+    100% { 
+        transform: rotateY(180deg);
+    }
 }
 
 @media screen and (max-width: 768px) {
-    .main-nav {
-        justify-content: space-around !important;
-    }
-
-    .main-nav li {
-        align-items: start !important;
-        margin-right: 0px !important;
-    }
-
     .main-nav li::after {
         display: none !important;
         content: none !important;

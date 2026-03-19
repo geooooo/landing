@@ -41,20 +41,6 @@ fn apply_config_for_template(template_name: &PathBuf, pattern: &Regex, pattern_t
             break
         }
 
-        // print!("line: {line}");
-        // let x = pattern.find(&line);
-        // if x.is_some() {
-        //     println!("{:?}", x.unwrap().);
-        // }
-        // // if x.is_some() {
-            
-        // //     println!("{:?}", y);
-        // // }
-        
-        
-        // let _ = std::io::stdin().read_line(&mut String::new());
-
-
         if let Some(captures) = pattern.captures(&line) && 
            let (Some(match0), Some(match1)) = (captures.get(0), captures.get(1)) && 
            let Some(content) = pattern_to_content_map.get(match1.as_str())
@@ -79,35 +65,57 @@ impl Into<HashMap<&'static str, String>> for &SSGBlogConfig {
                 <a href='{0}'>{1}</a>
             </li>
         ";
-        let footer_nav_group_template = r"
+        let footer_nav_multi_group_template = r"
             <div class='contacts'>
                 <h3 class='contacts-header'>{0}:</h3>
                 <ul class='contacts-list'>{1}</ul>
             </div>
         ";
+        let footer_nav_single_group_template = r"
+            <div class='contacts'>
+                <h3 class='contacts-header'>
+                    {0}:
+                    <a href='{1}'>{2}</a>
+                </h3>
+            </div>
+        ";
 
         let mut header_nav_items = String::new();
         for (text, link) in &self.header.nav {
-            let header_nav_item = nav_item_template
-                .replace("{0}", text)
-                .replace("{1}", link);
-            header_nav_items.push_str(&header_nav_item);
+            let nav_item = nav_item_template
+                .replace("{0}", link)
+                .replace("{1}", text);
+            header_nav_items.push_str(&nav_item);
         }
 
         let mut footer_nav_groups = String::new();
-        for (group_title, links) in &self.footer.nav {
-            let mut footer_nav_group_items = String::new();
-            for (text, link) in links {
-                let footer_nav_item = nav_item_template
-                    .replace("{0}", text)
-                    .replace("{1}", link);
-                footer_nav_group_items.push_str(&footer_nav_item);
+        for group in &self.footer.nav {
+            let nav_group;
+
+            if group.links.len() == 1 {
+                let keys: Vec<&String> = group.links.keys().collect();
+                let (text, link) = (keys[0], &group.links[keys[0]]);
+
+                nav_group = footer_nav_single_group_template
+                    .replace("{0}", &group.group)
+                    .replace("{1}", link)
+                    .replace("{2}", text);
+            } else {
+                let mut nav_group_items = String::new();
+
+                for (text, link) in &group.links {
+                    let nav_item = nav_item_template
+                        .replace("{0}", link)
+                        .replace("{1}", text);
+                    nav_group_items.push_str(&nav_item);
+                }
+
+                nav_group = footer_nav_multi_group_template
+                    .replace("{0}", &group.group)
+                    .replace("{1}", &nav_group_items);
             }
 
-            let footer_nav_group = footer_nav_group_template
-                .replace("{0}", group_title)
-                .replace("{1}", &footer_nav_group_items);
-            footer_nav_groups.push_str(&footer_nav_group);
+            footer_nav_groups.push_str(&nav_group);
         }
 
         hashmap! {
