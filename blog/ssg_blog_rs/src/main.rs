@@ -8,7 +8,12 @@ use templates_config::{
     apply::apply_config_for_templates,
 };
 use copy::copy_templates;
-
+/*
+img preview land and blog
+http server
+precache posts
+worker pool for gen
+*/
 fn main() -> Result<(), Box<dyn Error>> {
     let args = env::args().skip(1).collect::<Vec<String>>();
     let config_path = &args[0];

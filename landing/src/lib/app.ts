@@ -65,8 +65,9 @@ export class App {
         if (this.imgPreviewElement == null) {
             return;
         }
-        
-        this.imgPreviewElement.classList.toggle("img-preview");
+
+        const containerElement = this.imgPreviewElement.closest(".img-preview-container") as HTMLElement;
+        containerElement.classList.toggle("img-preview-container_active");
         this.imgPreviewElement = null;
 
         this.toggleShadow();
@@ -77,12 +78,9 @@ export class App {
             return;
         }
 
-        if (imgElement.alt.includes("Stepik") || imgElement.alt.includes("Coursera")) {
-            return;
-        }
-
         this.imgPreviewElement = imgElement;
-        this.imgPreviewElement.classList.toggle("img-preview");
+        const containerElement = imgElement.closest(".img-preview-container") as HTMLElement;
+        containerElement.classList.toggle("img-preview-container_active");
         
         this.toggleShadow();
     }
@@ -95,9 +93,11 @@ export class App {
         const target = event.target;
 
         if (target instanceof HTMLImageElement) {
-            event.stopPropagation();
-
-            this.onImageClickForPreview(target);
+            const containerElement = target.closest(".img-preview-container") as HTMLElement;
+            if (containerElement != null) {
+                event.stopPropagation();
+                this.onImageClickForPreview(target);
+            }
         } else {
             const headerElement = (target as HTMLElement).closest(".courses-header") as HTMLElement;
             if (headerElement != null) {
@@ -109,7 +109,7 @@ export class App {
     private onImageClickForPreview(imgElement: HTMLImageElement): void {
         if (this.imgPreviewElement != null) {
             this.hideImagePreview();
-        } else if (window.innerWidth <= 1024) {
+        } else {
             this.showImagePreview(imgElement);
         }
     }

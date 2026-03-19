@@ -11,6 +11,11 @@
             }
         }
     }
+
+    .img-preview-container_active {
+        height: 70vh !important;
+        top: 15vh !important;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -55,18 +60,6 @@
 
         > .wrike-awards {
             width: 100% !important;
-        }
-    }
-
-    .courses-item img {
-        cursor: pointer;
-        transition-duration: 0.2s;
-        transition-property: box-shadow;
-        transition-timing-function: linear;
-
-        &:active,
-        &:hover {
-            box-shadow: 0 0 5px var(--text-color);
         }
     }
 }
