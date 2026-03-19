@@ -1,0 +1,12 @@
+{
+  "name": "ssg_blog_rs",
+  "version": "1.0.0",
+  "author": "Yury Kornienko",
+  "license": "MIT",
+  "description": "My SSG for blog site by Rust",
+  "scripts": {
+    "install": "cargo build --release",
+    "build": "cargo run --release",
+    "dev": "cargo run --release"
+  }
+}

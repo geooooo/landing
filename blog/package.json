@@ -4,9 +4,12 @@
   "author": "Yury Kornienko",
   "license": "MIT",
   "description": "My blog site",
+  "devDependencies": {
+    "ssg_blog_rs": "./ssg_blog_rs"
+  },
   "scripts": {
-    "install": "cd ssg_blog_rs && cargo build --release",
-    "build": "cd ssg_blog_rs && cargo run --release ../ssg-blog.config.json",
-    "dev": "npm run build && cd ../dist/blog && pwd && python3 -m http.server"
+    "install": "npm explore ssg_blog_rs -- npm run install",
+    "build": "npm explore ssg_blog_rs -- npm run build ../ssg-blog.config.json",
+    "dev": "npm explore ssg_blog_rs -- npm run dev ../ssg-blog.config.json dev"
   }
 }
