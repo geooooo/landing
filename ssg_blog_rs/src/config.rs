@@ -1,61 +1,62 @@
-use std::error::Error;
-use std::path::PathBuf;
 use std::collections::HashMap;
-use std::fs::{self, File};
-use std::io::{BufRead, BufReader, Write};
+use std::fs;
+use std::env;
+use std::path::PathBuf;
+use std::error::Error;
+use std::fmt::{Display, Debug};
 use maplit::hashmap;
-use regex::Regex;
-use super::config::SSGBlogConfig;
+use serde::{Deserialize};
 
-const TEMPLATE_NAMES: [&'static str; 1] = [
-    "index.html",
-];
-const TEMP_NAME_POSTFIX: &'static str = "tmp";
+#[derive(Debug)]
+#[allow(unused)]
+struct NotExistsError(PathBuf);
 
-pub fn apply_config_for_templates(config: &SSGBlogConfig) -> Result<(), Box<dyn Error>> {
-    let pattern_to_content_map: HashMap<&str, String> = config.try_into()?;
-    let pattern = Regex::new(r"\{\{([\d\w.]+)\}\}")?;
+impl Error for NotExistsError {}
 
-    for template_name in TEMPLATE_NAMES {
-        let template_name = PathBuf::from(&config.out_dir).join(template_name);
-
-        apply_config_for_template(&template_name, &pattern, &pattern_to_content_map)?;
+impl Display for NotExistsError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:?}", self)
     }
-
-    Ok(())
 }
 
-fn apply_config_for_template(template_name: &PathBuf, pattern: &Regex, pattern_to_content_map: &HashMap<&str, String>) -> Result<(), Box<dyn Error>> {
-    let mut temp_template_name = template_name.clone();
-    temp_template_name.add_extension(TEMP_NAME_POSTFIX);
+#[derive(Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SSGBlogConfig {
+    pub out_dir: String,
+    pub posts_per_load_count: u8,
+    pub title: String,
+    pub icons_dir: String,
+    pub header: HeaderConfig,
+    pub footer: FooterConfig,
+}
 
-    let template_file = File::open(&template_name)?;
-    let mut temp_template_file = File::create(&temp_template_name)?;
-    let mut reader = BufReader::new(&template_file);
+impl SSGBlogConfig {
+    const CONFIG_FILE_NAME: &'static str = "ssg-blog.config.json";
 
-    loop {
-        let mut line = String::new();
-        let len = reader.read_line(&mut line)?;
+    pub fn search_config_file() -> Result<PathBuf, Box<dyn Error>> {
+        let current_dir_path = env::current_dir()?;
+        let config_path = current_dir_path.join(Self::CONFIG_FILE_NAME);
 
-        if len == 0 {
-            break
+        if !fs::exists(&config_path)? {
+            return Err(Box::new(NotExistsError(config_path)))
         }
 
-        if let Some(captures) = pattern.captures(&line) && 
-           let (Some(match0), Some(match1)) = (captures.get(0), captures.get(1)) && 
-           let Some(content) = pattern_to_content_map.get(match1.as_str())
-        {
-            line = line.replace(match0.as_str(), content);
-        }
-
-        temp_template_file.write_all(line.as_bytes())?;
+        Ok(config_path)
     }
 
-    drop(template_file);
-    fs::remove_file(&template_name)?;
-    fs::rename(&temp_template_name, &template_name)?;
+    pub fn parse_config(config_path: &PathBuf) -> Result<SSGBlogConfig, Box<dyn Error>> {
+        let json_content = fs::read_to_string(config_path)?;
+        let config: SSGBlogConfig = serde_json::from_str(&json_content)?;
 
-    Ok(())
+        Ok(config)
+    }
+
+    pub fn get_pattern_to_content(&self, posts_content: String) -> HashMap<&'static str, String> {
+        let mut pattern_to_content: HashMap<&str, String> = self.into();
+        pattern_to_content.insert("posts", posts_content);
+
+        pattern_to_content
+    }
 }
 
 impl Into<HashMap<&'static str, String>> for &SSGBlogConfig {
@@ -120,7 +121,7 @@ impl Into<HashMap<&'static str, String>> for &SSGBlogConfig {
 
         hashmap! {
             "title" => self.title.to_owned(),
-            "postsPerLoadCount" => self.posts_per_load_count.to_owned(),
+            "postsPerLoadCount" => self.posts_per_load_count.to_string(),
             "iconsDir" => self.icons_dir.to_owned(),
             "header.h1" => self.header.h1.to_owned(),
             "header.h2" => self.header.h2.to_owned(),
@@ -131,3 +132,31 @@ impl Into<HashMap<&'static str, String>> for &SSGBlogConfig {
         }
     }
 }
+
+#[derive(Deserialize)]
+pub struct HeaderConfig {
+    pub h1: String,
+    pub h2: String,
+    pub animations: AnimationsConfig,
+    pub nav: HashMap<String, String>,
+}
+
+#[derive(Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct AnimationsConfig {
+    pub first_img_path: String,
+    pub second_img_path: String,
+}
+
+#[derive(Deserialize)]
+pub struct FooterConfig {
+    pub nav: Vec<FooterNavGroupConfig>,
+}
+
+#[derive(Deserialize)]
+pub struct FooterNavGroupConfig {
+    pub group: String,
+    pub links: HashMap<String, String>,
+}
+
+

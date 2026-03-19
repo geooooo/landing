@@ -4,9 +4,10 @@
   "author": "Yury Kornienko",
   "license": "MIT",
   "description": "My SSG for blog site by Rust",
+  "bin": {
+    "ssg_blog_rs": "cargo run"
+  },
   "scripts": {
-    "install": "cargo build --release",
-    "build": "cargo run --release",
-    "dev": "cargo run --release"
+    "postinstall": "cargo build --release"
   }
 }

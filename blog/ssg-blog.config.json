@@ -1,14 +1,14 @@
 {
   "outDir": "../dist/blog",
-  "postsPerLoadCount": "5",
+  "postsPerLoadCount": 5,
   "title": "Юрий Корниенко - блог",
-  "iconsDir": "../assets/icons",
+  "iconsDir": "assets/icons",
   "header": {
     "h1": "Юрий Корниенко - блог",
     "h2": "Software Engineer",
     "animations": {
-      "firstImgPath": "../assets/langs/rustic.png",
-      "secondImgPath": "../assets/langs/gopher.png"
+      "firstImgPath": "assets/langs/rustic.png",
+      "secondImgPath": "assets/langs/gopher.png"
     },
     "nav": {
       "Резюме": "https://yury-kornienko.pro/",
