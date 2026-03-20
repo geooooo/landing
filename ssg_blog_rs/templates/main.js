@@ -18,13 +18,17 @@ function onClickOutside() {
 function onDocumentBodyClick(event) {
     var target = event.target;
 
-    onImageClickForPreview(target.closest(".preview-container") ? target : null);
+    if (target.closest == null) {
+        return;
+    }
+
+    onImageClickForPreview(target.closest(".preview-container") == null ? null : target);
 }
 
 function onImageClickForPreview(imgElement) {
     if (imgPreviewElement != null) {
         hideImagePreview();
-    } else {
+    } else if (imgElement != null) {
         showImagePreview(imgElement);
     }
 }

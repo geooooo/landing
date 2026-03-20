@@ -49,8 +49,15 @@ impl Error for GenError {}
 
 pub fn generate_posts_to_content(count: u8) -> Result<String, Box<dyn Error>> {
     let mut contents: Vec<String> = vec![];
+    let last_post_number = fs::read_dir(POSTS_DIR)?.count() as u32  - 1;
 
-    for number in 1..=count as u32  {
+    let first_post_number = if count as u32 >= last_post_number { 
+        1 
+    } else {
+        last_post_number - count as u32 + 1 
+    };
+
+    for number in (first_post_number..=last_post_number).rev()  {
         let post_data = parse_post_file(number)?;
         let post_content = generate_post(post_data);
 
@@ -66,10 +73,14 @@ pub fn generate_posts_to_files(done_count: u8) -> Result<(), Box<dyn Error>> {
     }
 
     fs::create_dir(POSTS_TEMP_DIR_PATH)?;
-    
-    let start_number = done_count as u32 + 1;
-    let post_count = fs::read_dir(POSTS_DIR)?.count() as u32  - 1;
-    for number in start_number..=post_count {
+
+    let post_count = fs::read_dir(POSTS_DIR)?.count() as u32 - 1;
+    if done_count as u32 >= post_count {
+        return Ok(());
+    }
+
+    let last_post_number = post_count - done_count as u32;
+    for number in 1..=last_post_number {
         let post_data = parse_post_file(number)?;
         let post_content = generate_post(post_data);
 
