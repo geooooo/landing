@@ -1,13 +1,26 @@
 @media screen and (max-width: 768px) {
-    .main-nav {
-        li {
-            &::after {
-                display: none !important;
-                content: none !important;
+    .header-footer {
+        flex-direction: column;
+
+        .nav {
+            &-second {
+                margin-left: 0;
+                padding-left: 0;
+                border-left: 0;
+                margin-top: 10px;
+                padding-top: 10px;
+                border-top: 2px dashed var(--page-background-color);
             }
 
-            a {
-                margin-right: 0 !important;
+            li {
+                &::after {
+                    display: none !important;
+                    content: none !important;
+                }
+
+                a {
+                    margin-right: 0 !important;
+                }
             }
         }
     }

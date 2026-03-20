@@ -5,6 +5,10 @@
     }
 
     h1 {
+        background-color: initial !important;
+    }
+
+    h2 {
         display: none;
     }
 
@@ -59,7 +63,7 @@
         }
     }
 
-    .main-nav {
+    .header-footer{
         display: none;
     }
 
