@@ -28,7 +28,8 @@
         </style>
 
         <script>
-            window.postsPerLoadCount = {{postsPerLoadCount}};
+            window.ssg_blog_rs_postsPerLoadCount = {{postsPerLoadCount}};
+            window.ssg_blog_rs_postCount = {{postCount}};
         </script>
         <script defer src="main.js"></script>
     </head>
@@ -50,18 +51,7 @@
         <main class="content">{{posts}}</main>
 
         <div class="loader loader_hidden"></div>
-
         <div class="shadow"></div>
-        
-        <footer class="footer">
-            <h2 class="footer-header">
-                <span class="icon material-symbols-outlined">phone_callback</span>
-                <a id="contacts">Как со мной связаться ?</a>
-            </h2>
-
-            <div class="footer-content">
-                {{footer.nav}}
-            </div>
-        </footer>
+        <div id="lazy-load-marker"></div>
     </body>
 </html>

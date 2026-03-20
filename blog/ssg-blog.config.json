@@ -10,55 +10,11 @@
       "firstImgPath": "assets/langs/rustic.png",
       "secondImgPath": "assets/langs/gopher.png"
     },
-    "nav": {
-      "Резюме": "https://yury-kornienko.pro/",
-      "Контакты": "#contacts"
-    }
-  },
-  "footer": {
     "nav": [
-      {
-        "group": "Социальные сети",
-        "links": {
-          "Telegram": "https://t.me/yury_kornienko_one",
-          "VK": "https://vk.com/yury_kornienko_one",
-          "Instagram": "https://www.instagram.com/yury_kornienko_one/"
-        }
-      },
-      {
-        "group": "Нетворкинг и блоги",
-        "links": {
-          "HH.setka": "https://set.ki/hJ8qLVQ",
-          "Threads": "https://www.threads.com/@yury_kornienko_one",
-          "Linkedin": "https://www.linkedin.com/in/yury-kornienko-one"
-        }
-      },
-      {
-        "group": "Резюме",
-        "links": {
-          "HH.ru": "https://orel.hh.ru/resume/688c2e57ff08aea8990039ed1f6e5653355466",
-          "Habr": "https://career.habr.com/yury_kornienko_one"
-        }
-      },
-      {
-        "group": "Образовательные площадки",
-        "links": {
-          "Stepik": "https://stepik.org/users/19182402/profile",
-          "Coursera": "https://www.coursera.org/learner/yury-kornienko-one"
-        }
-      },
-      {
-        "group": "Почта",
-        "links": {
-          "geo97it@gmail.com": "mailto:geo97it@gmail.com"
-        }
-      },
-      {
-        "group": "Github",
-        "links": {
-          "geooooo": "https://github.com/geooooo"
-        }
-      }
+      ["Сайт-резюме", "https://yury-kornienko.pro/"],
+      ["HH.setka", "https://set.ki/hJ8qLVQ"],
+      ["Threads", "https://www.threads.com/@yury_kornienko_one"],
+      ["Linkedin", "https://www.linkedin.com/in/yury-kornienko-one"]
     ]
   }
 }

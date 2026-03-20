@@ -101,26 +101,8 @@ assets/
       "firstImgPath": "assets/animations/img1.png",
       "secondImgPath": "assets/animations/img2.png"
     },
-    "nav": {
-      "CV": "https://some-site.com/",
-      "Contacts": "#contacts"
-    }
-  },
-  "footer": {
     "nav": [
-      {
-        "group": "Social",
-        "links": {
-          "Telegram": "https://t.me/some-user",
-          "Instagram": "https://www.instagram.com/some-user/"
-        }
-      },
-      {
-        "group": "Github",
-        "links": {
-          "some-user": "https://github.com/some-user"
-        }
-      }
+      ["Site", "https://some-site.com/"]
     ]
   }
 }
