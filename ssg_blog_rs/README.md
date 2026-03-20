@@ -13,7 +13,7 @@ now I am doing that for my personal blog inside my [landing site](https://github
 ## Future and ideas
 
 * Extends MD format for posts
-* Multithread build
+* Multithread + workers pool for building
 * Incremental build, maybe need precache builded parts to improve build performance
 * `ssg_blog_rs dev` mod for watch + simple localhost server for preview and development
 

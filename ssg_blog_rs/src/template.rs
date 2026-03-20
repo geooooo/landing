@@ -4,11 +4,7 @@ use std::collections::HashMap;
 use std::fs::{self, File};
 use std::io::{BufRead, BufReader, Write};
 use regex::Regex;
-
-const TEMPLATE_NAMES: [&'static str; 1] = [
-    "index.html",
-];
-const TEMP_NAME_POSTFIX: &'static str = "tmp";
+use super::params::{TEMPLATE_NAMES, TEMP_NAME_POSTFIX};
 
 pub fn insert_content_into_templates(
     target_dir: &str, 

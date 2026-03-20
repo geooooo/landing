@@ -2,14 +2,7 @@ use std::error::Error;
 use std::path::{Path, PathBuf};
 use std::fs;
 use std::fmt::{Debug, Display};
-
-const TEMPLATE_PATHS: [&'static str; 3] = [
-    "node_modules/ssg_blog_rs/templates/index.html",
-    "node_modules/ssg_blog_rs/templates/styles.css",
-    "node_modules/ssg_blog_rs/templates/main.js",
-];
-
-const ASSETS_DIR: &'static str = "assets";
+use super::params::{POSTS_TEMP_DIR_PATH, ASSETS_DIR, POSTS_DIR, TEMPLATE_PATHS};
 
 #[derive(Debug)]
 #[allow(unused)]
@@ -48,14 +41,22 @@ pub fn clean_dir(target_dir: &str) -> Result<(), Box<dyn Error>> {
 }
 
 pub fn copy_assets(target_dir: &str) -> Result<(), Box<dyn Error>> {
-    for source_template_path in TEMPLATE_PATHS {
-        let source_template_path = PathBuf::from(source_template_path);
-        let template_name = source_template_path.file_name().unwrap();
-        let target_template_path = PathBuf::from(target_dir).join(template_name);
+    let source_assets_path = PathBuf::from(ASSETS_DIR);
+    let target_assets_path = PathBuf::from(target_dir).join(ASSETS_DIR);
 
-        fs::copy(&source_template_path, &target_template_path)
-            .map_err(|_| CopyError(PathBuf::from(source_template_path)))?;
-    }
+    copy_dir_recursive(&source_assets_path, &target_assets_path)?;
+
+    Ok(())
+}
+
+pub fn move_posts(target_dir: &str) -> Result<(), Box<dyn Error>> {
+    let source_assets_path = PathBuf::from(POSTS_TEMP_DIR_PATH);
+    let target_assets_path = PathBuf::from(target_dir).join(POSTS_DIR);
+
+    copy_dir_recursive(&source_assets_path, &target_assets_path)?;
+
+    fs::remove_dir_all(&source_assets_path)
+        .map_err(|_| CleanError(source_assets_path))?;
 
     Ok(())
 }
@@ -73,7 +74,6 @@ pub fn copy_templates(target_dir: &str) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-// copy_dir_recursive(&PathBuf::from(TEMPLATES_PATH), &PathBuf::from(&target_dir))?;
 fn copy_dir_recursive(source_dir: &Path, target_dir: &Path) -> Result<(), Box<dyn Error>> {
     fs::create_dir(target_dir)
         .map_err(|_| CopyError(target_dir.to_path_buf()))?;

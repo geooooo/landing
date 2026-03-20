@@ -7,6 +7,28 @@ use std::fmt::{Display, Debug};
 use maplit::hashmap;
 use serde::{Deserialize};
 
+const NAV_ITEM_TEMPLATE: &'static str = r"
+    <li>
+        <a href='{0}'>{1}</a>
+    </li>
+";
+
+const FOOTER_NAV_MULTI_GROUP_TEMPLATE: &'static str = r"
+    <div class='contacts'>
+        <h3 class='contacts-header'>{0}:</h3>
+        <ul class='contacts-list'>{1}</ul>
+    </div>
+";
+
+const FOOTER_NAV_SINGLE_GROUP_TEMPLATE: &'static str = r"
+    <div class='contacts'>
+        <h3 class='contacts-header'>
+            {0}:
+            <a href='{1}'>{2}</a>
+        </h3>
+    </div>
+";
+
 #[derive(Debug)]
 #[allow(unused)]
 struct NotExistsError(PathBuf);
@@ -61,29 +83,9 @@ impl SSGBlogConfig {
 
 impl Into<HashMap<&'static str, String>> for &SSGBlogConfig {
     fn into(self) -> HashMap<&'static str, String> {
-        let nav_item_template = r"
-            <li>
-                <a href='{0}'>{1}</a>
-            </li>
-        ";
-        let footer_nav_multi_group_template = r"
-            <div class='contacts'>
-                <h3 class='contacts-header'>{0}:</h3>
-                <ul class='contacts-list'>{1}</ul>
-            </div>
-        ";
-        let footer_nav_single_group_template = r"
-            <div class='contacts'>
-                <h3 class='contacts-header'>
-                    {0}:
-                    <a href='{1}'>{2}</a>
-                </h3>
-            </div>
-        ";
-
         let mut header_nav_items = String::new();
         for (text, link) in &self.header.nav {
-            let nav_item = nav_item_template
+            let nav_item = NAV_ITEM_TEMPLATE
                 .replace("{0}", link)
                 .replace("{1}", text);
             header_nav_items.push_str(&nav_item);
@@ -97,7 +99,7 @@ impl Into<HashMap<&'static str, String>> for &SSGBlogConfig {
                 let keys: Vec<&String> = group.links.keys().collect();
                 let (text, link) = (keys[0], &group.links[keys[0]]);
 
-                nav_group = footer_nav_single_group_template
+                nav_group = FOOTER_NAV_SINGLE_GROUP_TEMPLATE
                     .replace("{0}", &group.group)
                     .replace("{1}", link)
                     .replace("{2}", text);
@@ -105,13 +107,13 @@ impl Into<HashMap<&'static str, String>> for &SSGBlogConfig {
                 let mut nav_group_items = String::new();
 
                 for (text, link) in &group.links {
-                    let nav_item = nav_item_template
+                    let nav_item = NAV_ITEM_TEMPLATE
                         .replace("{0}", link)
                         .replace("{1}", text);
                     nav_group_items.push_str(&nav_item);
                 }
 
-                nav_group = footer_nav_multi_group_template
+                nav_group = FOOTER_NAV_MULTI_GROUP_TEMPLATE
                     .replace("{0}", &group.group)
                     .replace("{1}", &nav_group_items);
             }
