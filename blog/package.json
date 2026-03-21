@@ -1,0 +1,14 @@
+{
+  "name": "my-blog",
+  "version": "1.0.0",
+  "author": "Yury Kornienko",
+  "license": "MIT",
+  "description": "My blog site",
+  "devDependencies": {
+    "ssg_blog_rs": "github:geooooo/ssg_blog_rs"
+  },
+  "scripts": {
+    "build": "ssg_blog_rs build",
+    "dev": "npm run build && cd ../dist/blog && python3 -m http.server"
+  }
+}

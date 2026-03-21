@@ -1,0 +1,20 @@
+{
+  "outDir": "../dist/blog",
+  "postsPerLoadCount": 5,
+  "title": "Юрий Корниенко - блог",
+  "iconsDir": "assets/icons",
+  "header": {
+    "h1": "Юрий Корниенко - блог",
+    "h2": "Software Engineer",
+    "animations": {
+      "firstImgPath": "assets/langs/rustic.png",
+      "secondImgPath": "assets/langs/gopher.png"
+    },
+    "nav": [
+      ["Сайт-резюме", "https://yury-kornienko.pro/"],
+      ["HH.setka", "https://set.ki/hJ8qLVQ"],
+      ["Threads", "https://www.threads.com/@yury_kornienko_one"],
+      ["Linkedin", "https://www.linkedin.com/in/yury-kornienko-one"]
+    ]
+  }
+}
