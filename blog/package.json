@@ -5,9 +5,10 @@
   "license": "MIT",
   "description": "My blog site",
   "devDependencies": {
-    "ssg_blog_rs": "file:../ssg_blog_rs"
+    "ssg_blog_rs": "file:../../ssg_blog_rs"
   },
   "scripts": {
-    "build": "ssg_blog_rs build"
+    "build": "ssg_blog_rs build",
+    "dev": "npm run build && cd ../dist/blog && python3 -m http.server"
   }
 }
