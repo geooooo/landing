@@ -8,6 +8,7 @@
     "build": "NODE_ENV=production npm run build --workspaces"
   },
   "workspaces": [
-    "landing"
+    "landing",
+    "blog"
   ]
 }
