@@ -9,6 +9,6 @@
   },
   "scripts": {
     "build": "ssg_blog_rs build",
-    "dev": "npm run build && cd ../dist/blog && python3 -m http.server"
+    "serve": "npm run build && cd ../dist/blog && python3 -m http.server"
   }
 }
