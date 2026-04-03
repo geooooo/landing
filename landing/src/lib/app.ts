@@ -5,7 +5,7 @@ export class App {
     private shadowElement: HTMLElement | null  = null;
 
     run(): void {
-        this.preloadImages();
+        setTimeout(() => this.preloadImages(), 0);
 
         window.addEventListener("load", this.onWindowLoad.bind(this));
         window.addEventListener("beforeprint", this.onBeforePrint.bind(this));
@@ -36,7 +36,6 @@ export class App {
         cvElement.addEventListener("click", this.onCVClick.bind(this));
 
         this.openAchievementsIfNeed();
-        
         this.renderSkills();
     }
 

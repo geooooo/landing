@@ -4,14 +4,14 @@ import { SkillCategory } from "./models/skill-category";
 export const imageBaseUrl = "assets/";
 
 export const imagesToPreload = [
-    "iam/wrike-items.jpg",
+    "iam/wrike-items.webp",
     "iam/meetup.jpg",
-    "iam/gdg.jpg",
-    "iam/delphi-old-school-kringe.png",
-    "certs/olymp0.jpg",
-    "certs/olymp1.jpeg",
+    "iam/gdg.webp",
+    "iam/delphi-old-school-kringe.webp",
+    "certs/olymp0.webp",
+    "certs/olymp1.webp",
     "certs/stepik.png",
-    "certs/coursera.png",
+    "certs/coursera.webp",
 ];
 
 export const skillsByCategoryMap = new Map([

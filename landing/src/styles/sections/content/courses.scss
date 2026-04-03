@@ -63,27 +63,19 @@
                 height: 96vh;
                 top: 2vh;
                 left: 2vw;
-                box-shadow: 0 0 5px var(--text-color);
-                border-radius: 10px;
-                background-color: var(--page-background-color);
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
                 img {
-                    cursor: initial;
                     transition: none;
-                    max-height: 98%;
-                    max-width: 99%;
+                    max-height: 100%;
+                    max-width: 100%;
                     width: auto;
                     height: auto;
                     min-width: auto;
                     min-height: auto;
-
-                    &:active,
-                    &:hover {
-                        box-shadow: none;
-                    }
+                    box-shadow: 0 0 5px var(--text-color);
                 }
             }
         }
