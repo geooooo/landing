@@ -4,13 +4,9 @@ import { SkillCategory } from "./models/skill-category";
 export const imageBaseUrl = "assets/";
 
 export const imagesToPreload = [
-    "iam/wrike-items.webp",
-    "iam/meetup.jpg",
-    "iam/gdg.webp",
-    "iam/delphi-old-school-kringe.webp",
     "certs/olymp0.webp",
     "certs/olymp1.webp",
-    "certs/stepik.png",
+    "certs/stepik.webp",
     "certs/coursera.webp",
 ];
 

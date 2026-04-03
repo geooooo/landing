@@ -12,11 +12,9 @@ export class App {
     }
 
     private preloadImages(): void {
-        for (let i = 0; i < configs.imagesToPreload.length; i++) {
-            const src = configs.imageBaseUrl + configs.imagesToPreload[i];
+        for (let imageToPreload of configs.imagesToPreload) {
+            const src = configs.imageBaseUrl + imageToPreload;
             const img = new Image();
-
-            img.onload = () => console.log("Loaded:", src);
             img.src = src;
         }
     }
