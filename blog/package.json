@@ -5,10 +5,10 @@
   "license": "MIT",
   "description": "My blog site",
   "devDependencies": {
-    "ssg_blog_rs": "github:geooooo/ssg_blog_rs#dev"
+    "ssg_blog_rs": "geooooo/ssg_blog_rs#e8e0930f114f402d1c230033b240f174945289b4"
   },
   "scripts": {
-    "build": "ssg_blog_rs build",
+    "build": "npx ssg_blog_rs build",
     "dev": "npm run build && cd ../dist/blog && python3 -m http.server"
   }
 }
