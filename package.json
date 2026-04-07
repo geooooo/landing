@@ -5,9 +5,7 @@
   "license": "MIT",
   "description": "My landing site monorepo",
   "scripts": {
-    "build": "NODE_ENV=production npm run build --workspaces",
-    "dev": "npm run dev --workspaces",
-    "serve": "npm run serve --workspaces"
+    "build": "NODE_ENV=production npm run build --workspaces"
   },
   "workspaces": [
     "landing",
